@@ -1,7 +1,7 @@
 <div class="container">
     <h1 class="mb-4 pb-2">Login or register</h1>
     <script>
-        function myFunction(id) {
+        function showHidePassword(id) {
             var x = document.getElementById(id);
             if (x.type === "password") {
                 x.type = "text";
@@ -41,6 +41,7 @@
                     if ($user_data) {
                         $_SESSION['is_loggedin'] = true;
                         $_SESSION['user_data'] = $user_data;
+                        $_SESSION['show_login'] = true;
                         header('Location: index.php');
                     }
                 } else {
@@ -70,24 +71,26 @@
                 } else {
                 //login
                 $user_data = $User->loginUser($_POST);
-                if ($user_data) {
-                    if ($user_data['password_attempts'] > 5) { ?>
+                var_dump($user_data);
+                if (gettype($user_data) == "array") {
+                    $_SESSION['is_loggedin'] = true;
+                    $_SESSION['user_data'] = $user_data;
+                    $_SESSION['show_login'] = true;
+                    header('Location: index.php');
+                }
+                else {
+                    if ($user_data == 0) { ?>
                         <div class="alert alert-danger" role="alert">
-                        Login credentials are incorrect
+                        Login credentials are incorrect.
                         </div>
                     <?php
-                    } else {
-                        $_SESSION['is_loggedin'] = true;
-                        $_SESSION['user_data'] = $user_data;
-                        header('Location: index.php');
+                    } else { ?>
+                        <div class="alert alert-danger" role="alert">
+                            Account is locked! Contact an admin to unlock your account.
+                        </div>
+                    <?php
                     }
-                } else {
-                    ?>
-                    <div class="alert alert-danger" role="alert">
-                        Login credentials are incorrect
-                    </div>
-                <?php
-                }
+                } 
             }
         }
     ?>
@@ -109,12 +112,12 @@
         <div class="form-group">
             <label for="reg_password">Password</label>
             <input type="password" class="form-control" id="reg_password" name="password">
-            <input type="checkbox" onclick="myFunction('reg_password')">Show Password
+            <input type="checkbox" onclick="showHidePassword('reg_password')">Show Password
         </div>
         <div class="form-group">
             <label for="reg_password_confirm">Confirm Password</label>
             <input type="password" class="form-control" id="reg_password_confirm" name="password_confirm">
-            <input type="checkbox" onclick="myFunction('reg_password_confirm')">Show Confirm Password
+            <input type="checkbox" onclick="showHidePassword('reg_password_confirm')">Show Confirm Password
         </div>
         <div class="form-group">
             <label for="reg_phone">Phone number</label>
@@ -148,7 +151,7 @@
         <div class="form-group">
             <label for="login_password">Password</label>
             <input type="password" class="form-control" id="login_password" name="password">
-            <input type="checkbox" onclick="myFunction('login_password')">Show Password
+            <input type="checkbox" onclick="showHidePassword('login_password')">Show Password
         </div>
         <button type="submit" name="login" value="1" class="btn btn-ybac">Login</button>
         </form>

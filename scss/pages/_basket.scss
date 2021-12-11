@@ -2,3 +2,14 @@
     display: flex;
     justify-content: center;
 }
+
+.row {
+    flex-direction: column;
+    align-content: center;
+    color: white;
+    text-align: center;
+
+    .goHomeButton {
+        width: auto;
+    }
+}

@@ -112,7 +112,7 @@ class Car {
         $query = "UPDATE cars SET
         make = :make,
         model = :model,
-        model_variant = :model_variant,
+        variant = :variant,
         mileage = :mileage,
         year_built = :year_built,
         description = :description,
@@ -128,7 +128,7 @@ class Car {
         $data = [
             'make' => $car_details['make'],
             'model' => $car_details['model'],
-            'model_variant' => $car_details['model_variant'],
+            'variant' => $car_details['variant'],
             'mileage' => (int)$car_details['mileage'],
             'year_built' => (int)$car_details['year_built'],
             'description' => $car_details['description'],
@@ -141,23 +141,7 @@ class Car {
             'active' => (bool)$car_details['active'],
             'car_id' => (int)$car_details['car_id'],
         ];
-        return $stmt;
-        // $stmt->execute($data);
-        // try {
-        //     $stmt->execute($data);
-        // } catch (PDOException $e) {
-        //     return $e->getMessage();
-        // }
-        // return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    public function add($details) {
-        $query = "SELECT * FROM cars WHERE active = 1 AND make LIKE :query_string;";
-        $stmt = $this->Conn->prepare($query);
-        $data = [
-            "query_string" => "%".$query_string."%"
-        ];
         $stmt->execute($data);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return true;
     }
 }

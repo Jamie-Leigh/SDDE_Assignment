@@ -9,6 +9,9 @@ header {
             font-weight: 500;
             color: #393e4f;
         }
+        .active {
+            color: $tertiary-color !important;
+        }
         
         .navbar-brand {
             font-family: 'Bangers', cursive;

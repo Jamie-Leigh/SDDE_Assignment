@@ -4,23 +4,6 @@
 		public function __construct($Conn){
 			$this->Conn = $Conn;
 		}
-		public function createUser($user_data){
-			$sec_password = password_hash($user_data['password'], PASSWORD_DEFAULT);
-			$query = "INSERT INTO user (first_name, surname, email, password, phone, address_line_1, address_line_2, address_line_3, postcode)
-			VALUES (:first_name, :surname, :email, :password, :phone, :address_line_1, :address_line_2, :address_line_3, :postcode)";
-			$stmt = $this->Conn->prepare($query);
-			return $stmt->execute(array(
-				'first_name' => $user_data['first_name'],
-				'surname' => $user_data['surname'],
-				'email' => $user_data['email'],
-				'password' => $sec_password,
-				'phone' => $user_data['phone'],
-				'address_line_1' => $user_data['address_line_1'],
-				'address_line_2' => $user_data['address_line_2'],
-				'address_line_3' => $user_data['address_line_3'],
-				'postcode' => $user_data['postcode']
-			));
-		}
 
 		private function getPasswordAttempts($user_email) {
 			$query = "SELECT password_attempts FROM user WHERE email = :email";
@@ -61,6 +44,24 @@
 			));
 		}
 
+		public function createUser($user_data){
+			$sec_password = password_hash($user_data['password'], PASSWORD_DEFAULT);
+			$query = "INSERT INTO user (first_name, surname, email, password, phone, address_line_1, address_line_2, address_line_3, postcode)
+			VALUES (:first_name, :surname, :email, :password, :phone, :address_line_1, :address_line_2, :address_line_3, :postcode)";
+			$stmt = $this->Conn->prepare($query);
+			return $stmt->execute(array(
+				'first_name' => $user_data['first_name'],
+				'surname' => $user_data['surname'],
+				'email' => $user_data['email'],
+				'password' => $sec_password,
+				'phone' => $user_data['phone'],
+				'address_line_1' => $user_data['address_line_1'],
+				'address_line_2' => $user_data['address_line_2'],
+				'address_line_3' => $user_data['address_line_3'],
+				'postcode' => $user_data['postcode']
+			));
+		}
+
 		public function loginUser($user_data) {
 			$password_attempts = $this->getPasswordAttempts($user_data['email'])['password_attempts'];
 			if ($password_attempts >= 5) {
@@ -78,7 +79,7 @@
 				return $attempt;
 			} else {
 				$this->setPasswordAttempts($user_data['email']);
-				return false;
+				return $attempt['locked'];
 			}
 		}
 

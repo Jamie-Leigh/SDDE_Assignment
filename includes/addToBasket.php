@@ -12,7 +12,7 @@
     } else {
         ?>
         <form method="post" action="index.php?p=login" class="addToBasket">
-        <button id="loginBasket" type="submit" class="btn btn-ybac" >Login to add cars to your basket</button>
+        <button id="loginBasket" type="submit" class="btn btn-ybac">Add to basket</button>
         </form>
         <?php
     }

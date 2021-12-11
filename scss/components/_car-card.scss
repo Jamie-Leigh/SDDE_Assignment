@@ -14,11 +14,8 @@
 	"image     description"
 	"car-title description";
 
-	@media screen and (max-width: 991px) {
+	@media screen and (max-width: $tabletBreakPoint) {
 		 grid-template-columns: 180px auto;
-	// 	grid-template-areas:
-	// 	"image     description"
-	// 	"car-title .";
 	}
 
 
@@ -31,7 +28,7 @@
 		-moz-background-size: cover;
 		background-size: cover;
 		grid-area: image;
-		@media screen and (max-width: 991px) {
+		@media screen and (max-width: $tabletBreakPoint) {
 			width: 180px;
 		}
 
@@ -62,12 +59,12 @@
 		grid-template-rows: 1fr 1fr 1fr 40px;
 		grid-gap: 10px;
 		grid-template-areas:
-		"make      model      transmission_type  model_variant  description"
+		"make      model      transmission_type  variant  description"
 		"mileage   fuel_type  year_built         car_id         description"
 		"seats     colour     body_type          active         price"
 		".         .          .                  .              button";
 
-		@media screen and (max-width: 991px) {
+		@media screen and (max-width: $tabletBreakPoint) {
 			grid-template-columns: 1fr;
 			grid-template-rows: 1fr 1fr 1fr 40px;
 			grid-template-areas:
@@ -83,8 +80,8 @@
 		.model {
 			grid-area: model;
 		}
-		.model_variant {
-			grid-area: model_variant;
+		.variant {
+			grid-area: variant;
 		}
 		.mileage {
 			grid-area: mileage;
@@ -120,28 +117,43 @@
 			grid-area: active;
 		}
 
-		.make, .model, .model_variant, .mileage, .fuel, .transmission, .year_built, .seats, .colour, .body_type, .car_id, .active {
+		.make, .model, .variant, .mileage, .fuel, .transmission, .year_built, .seats, .colour, .body_type, .car_id, .active {
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
 			align-items: center;
-			@media screen and (max-width: 991px) {
+			@media screen and (max-width: $tabletBreakPoint) {
 				display: none;
 			}
 		}
 
 		.detail-title {
 			font-weight: 700;
+			color: black;
+			width: 100%;
 		}
 		.detail-content {
 			font-weight: 200;
+			color: black;
+			resize: none;
+			width: 100%;
+			@media screen and (max-width: $tabletBreakPoint) {
+				max-height: 100px;
+				overflow-y: auto;
+			}
+		}
+		.addToBasket {
+			grid-area: button;
 		}
 		.btn {
 			grid-area: button;
 			justify-self: center;
-			@media screen and (max-width: 425px) {
-				font-size: smaller;
-				padding: 0;
+			height: 40px;
+			&:not(.edit, .save) {
+				@media screen and (max-width: $tinyBreakPoint) {
+					font-size: smaller;
+					padding: 0;
+				}
 			}
 		}
 	}

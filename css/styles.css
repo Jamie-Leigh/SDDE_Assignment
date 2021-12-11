@@ -1,8 +1,4 @@
 @import '../node_modules/lightbox2/dist/css/lightbox.min.css';
-.accordion-button {
-  background-color: blue;
-}
-
 * {
   font-family: "Roboto";
 }
@@ -12,6 +8,7 @@ h1 {
   color: #fff;
   font-size: 2.2rem;
   border-bottom: solid 2px #5c80bc;
+  padding-top: 10px;
 }
 
 h2 {
@@ -40,17 +37,21 @@ header nav a:active {
   font-weight: 500;
   color: #393e4f;
 }
+header nav .active {
+  color: #e8c547 !important;
+}
 header nav .navbar-brand {
   font-family: "Bangers", cursive;
 }
 
 footer p {
   font-size: 0.9rem;
+  text-align: center !important;
 }
 
 .btn.btn-ybac {
   background-color: #5c80bc;
-  color: #30323d;
+  color: #30323d !important;
 }
 
 .car-card {
@@ -109,7 +110,7 @@ footer p {
   grid-template-columns: 1fr 1fr 1fr 1fr 4fr;
   grid-template-rows: 1fr 1fr 1fr 40px;
   grid-gap: 10px;
-  grid-template-areas: "make      model      transmission_type  model_variant  description" "mileage   fuel_type  year_built         car_id         description" "seats     colour     body_type          active         price" ".         .          .                  .              button";
+  grid-template-areas: "make      model      transmission_type  variant  description" "mileage   fuel_type  year_built         car_id         description" "seats     colour     body_type          active         price" ".         .          .                  .              button";
 }
 @media screen and (max-width: 991px) {
   .car-card .car-details {
@@ -124,8 +125,8 @@ footer p {
 .car-card .car-details .model {
   grid-area: model;
 }
-.car-card .car-details .model_variant {
-  grid-area: model_variant;
+.car-card .car-details .variant {
+  grid-area: variant;
 }
 .car-card .car-details .mileage {
   grid-area: mileage;
@@ -160,37 +161,124 @@ footer p {
 .car-card .car-details .active {
   grid-area: active;
 }
-.car-card .car-details .make, .car-card .car-details .model, .car-card .car-details .model_variant, .car-card .car-details .mileage, .car-card .car-details .fuel, .car-card .car-details .transmission, .car-card .car-details .year_built, .car-card .car-details .seats, .car-card .car-details .colour, .car-card .car-details .body_type, .car-card .car-details .car_id, .car-card .car-details .active {
+.car-card .car-details .make, .car-card .car-details .model, .car-card .car-details .variant, .car-card .car-details .mileage, .car-card .car-details .fuel, .car-card .car-details .transmission, .car-card .car-details .year_built, .car-card .car-details .seats, .car-card .car-details .colour, .car-card .car-details .body_type, .car-card .car-details .car_id, .car-card .car-details .active {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
 @media screen and (max-width: 991px) {
-  .car-card .car-details .make, .car-card .car-details .model, .car-card .car-details .model_variant, .car-card .car-details .mileage, .car-card .car-details .fuel, .car-card .car-details .transmission, .car-card .car-details .year_built, .car-card .car-details .seats, .car-card .car-details .colour, .car-card .car-details .body_type, .car-card .car-details .car_id, .car-card .car-details .active {
+  .car-card .car-details .make, .car-card .car-details .model, .car-card .car-details .variant, .car-card .car-details .mileage, .car-card .car-details .fuel, .car-card .car-details .transmission, .car-card .car-details .year_built, .car-card .car-details .seats, .car-card .car-details .colour, .car-card .car-details .body_type, .car-card .car-details .car_id, .car-card .car-details .active {
     display: none;
   }
 }
 .car-card .car-details .detail-title {
   font-weight: 700;
+  color: black;
+  width: 100%;
 }
 .car-card .car-details .detail-content {
   font-weight: 200;
+  color: black;
+  resize: none;
+  width: 100%;
+}
+@media screen and (max-width: 991px) {
+  .car-card .car-details .detail-content {
+    max-height: 100px;
+    overflow-y: auto;
+  }
+}
+.car-card .car-details .addToBasket {
+  grid-area: button;
 }
 .car-card .car-details .btn {
   grid-area: button;
   justify-self: center;
+  height: 40px;
 }
-@media screen and (max-width: 425px) {
-  .car-card .car-details .btn {
+@media screen and (max-width: 490px) {
+  .car-card .car-details .btn:not(.edit, .save) {
     font-size: smaller;
     padding: 0;
   }
 }
 
+.myModal {
+  position: absolute;
+  width: 100%;
+  min-height: -webkit-fill-available;
+  background: rgba(192, 192, 192, 0.7);
+}
+
+.modal-dialog {
+  margin: 0.75rem auto !important;
+}
+
+.modal-header {
+  justify-content: center !important;
+  border-bottom: none !important;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.modal-body p {
+  color: black;
+}
+
+.spinner {
+  border: 4px solid #5c80bc;
+  border-radius: 50%;
+  border-top: 4px solid #30323d;
+  width: 40px;
+  height: 40px;
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#map {
+  width: auto;
+  height: 400px;
+}
+
 .filter-container,
 .filters {
   margin-bottom: 10px;
+}
+
+.row {
+  flex-direction: row !important;
+}
+
+a {
+  color: inherit !important;
+}
+
+p {
+  text-align: left !important;
+}
+
+.loggedInModal {
+  background: none;
+  position: absolute;
+}
+.loggedInModal .modal-dialog > .modal-content {
+  background-color: rgba(0, 255, 0, 0.5);
+  border: #e8c547 solid 1px;
+}
+.loggedInModal .modal-dialog > .modal-content .border-header {
+  border-bottom: none !important;
+  justify-content: center !important;
 }
 
 .search {
@@ -199,6 +287,12 @@ footer p {
   grid-template-areas: "search ." "button .";
   grid-column-gap: 80px;
   grid-row-gap: 10px;
+}
+@media screen and (max-width: 768px) {
+  .search {
+    grid-template-columns: 1fr;
+    grid-template-areas: "search" "button";
+  }
 }
 .search .search {
   grid-area: search;
@@ -216,6 +310,7 @@ footer p {
   grid-column-gap: 80px;
   border-bottom: 10px;
   color: #5c80bc;
+  row-gap: 10px;
 }
 @media screen and (max-width: 768px) {
   #filter-form {
@@ -264,18 +359,115 @@ body#page-login form .btn-ybac {
   margin-top: 10px;
 }
 
-body#page-car .car-image-main {
+body#page-car .centralised {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+body#page-car .car-photos {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  grid-template-rows: 340px 1fr;
+  grid-template-areas: "main additional" "description description";
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  body#page-car .car-photos {
+    grid-template-columns: 320px;
+    grid-template-rows: 340px auto 1fr;
+    grid-template-areas: "main" "additional" "description";
+    width: auto;
+  }
+}
+body#page-car .car-details {
+  color: #FFF;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "make model variant" "mileage year_built seats" "fuel_type transmission_type colour" ". body_type ." "description description description" ". price .";
+  flex-direction: column;
+  width: 450px;
+  text-align: center;
+  row-gap: 10px;
+}
+@media screen and (max-width: 768px) {
+  body#page-car .car-details {
+    width: 300px;
+  }
+}
+body#page-car .car-details .make {
+  grid-area: make;
+}
+body#page-car .car-details .model {
+  grid-area: model;
+}
+body#page-car .car-details .variant {
+  grid-area: variant;
+}
+body#page-car .car-details .mileage {
+  grid-area: mileage;
+}
+body#page-car .car-details .description {
+  grid-area: description;
+}
+body#page-car .car-details .fuel {
+  grid-area: fuel_type;
+}
+body#page-car .car-details .transmission {
+  grid-area: transmission_type;
+}
+body#page-car .car-details .year_built {
+  grid-area: year_built;
+}
+body#page-car .car-details .price {
+  grid-area: price;
+}
+body#page-car .car-details .seats {
+  grid-area: seats;
+}
+body#page-car .car-details .colour {
+  grid-area: colour;
+}
+body#page-car .car-details .body_type {
+  grid-area: body_type;
+}
+body#page-car .car-details .car_id {
+  grid-area: car_id;
+}
+body#page-car .car-details .active {
+  grid-area: active;
+}
+body#page-car .car-details .detail-title {
+  font-weight: 700;
+  color: white;
+  width: 100%;
+}
+body#page-car .car-details .detail-content {
+  font-weight: 200;
+  color: white;
+  resize: none;
+  width: 100%;
+}
+body#page-car .car-image-main {
+  grid-area: main;
   margin-bottom: 30px;
 }
 body#page-car .car-image-main img {
-  height: 400px;
+  height: 320px;
   border: 3px solid white;
 }
+body#page-car .additional {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: auto;
+}
 body#page-car .car-image-additional {
+  grid-area: additional;
   border: solid 3px #FFF;
   height: 150px;
+  width: 150px;
   background-repeat: no-repeat;
   background-position: center center;
   -webkit-background-size: cover;
@@ -294,6 +486,33 @@ body#page-car .car-image-additional a {
 }
 
 .row {
+  flex-direction: column;
+  align-content: center;
+  color: white;
+  text-align: center;
+}
+.row .goHomeButton {
+  width: auto;
+}
+
+.accordion {
+  background-color: blue;
+}
+.accordion #map {
+  width: 200px;
+  height: 200px;
+}
+@media screen and (max-width: 768px) {
+  .accordion #map {
+    padding-right: 100%;
+  }
+}
+.accordion #map .mapboxgl-canvas {
+  width: auto !important;
+  height: 100% !important;
+}
+
+.row {
   justify-content: center;
 }
 .row .column {
@@ -303,6 +522,37 @@ body#page-car .car-image-additional a {
 .row .column .form {
   display: flex;
   flex-direction: column;
+}
+
+.savingModal {
+  position: absolute;
+  width: 100%;
+  min-height: -webkit-fill-available;
+  background: rgba(192, 192, 192, 0.7);
+}
+
+.modal-dialog {
+  margin: 0.75rem auto !important;
+}
+
+.modal-header {
+  justify-content: center !important;
+  border-bottom: none !important;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.modal-body p {
+  color: black;
+}
+
+.noResults {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 body {

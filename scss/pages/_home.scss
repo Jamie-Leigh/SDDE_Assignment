@@ -3,6 +3,29 @@
     margin-bottom: 10px;
 }
 
+.row {
+    flex-direction: row !important;
+}
+
+a {
+    color: inherit !important;
+}
+p {
+    text-align: left !important;
+}
+.loggedInModal {
+    background: none;
+    position: absolute;
+
+    .modal-dialog > .modal-content {
+        background-color: rgba(0,255,0, 0.5);
+        border: $tertiary-color solid 1px;
+        .border-header {
+            border-bottom: none !important;
+            justify-content: center !important;
+        }
+    }
+}
 .search {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -11,6 +34,14 @@
     "button .";
     grid-column-gap: 80px;
     grid-row-gap: 10px;
+
+    @media screen and (max-width: $mobileBreakPoint) {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "search"
+        "button";
+    }
+
 
     .search {
         grid-area: search;
@@ -32,8 +63,9 @@
   grid-column-gap: 80px;
   border-bottom: 10px;
   color: $secondary-color;
+  row-gap: 10px ;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $mobileBreakPoint) {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-column-gap: 0px;

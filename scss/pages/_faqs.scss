@@ -1,0 +1,17 @@
+
+.accordion {
+    background-color: blue;
+    
+    #map {
+        width: 200px;
+        height: 200px;
+        @media screen and (max-width: $mobileBreakPoint) {
+            padding-right: 100%;
+        }
+
+        .mapboxgl-canvas {
+        width: auto !important;
+        height: 100% !important;
+        }
+    }
+}

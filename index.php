@@ -12,39 +12,34 @@ if($_SESSION['user_data']) {
 }
 ini_set('display_errors', 'On');
 $page = $_GET['p'];
-$pages = ['account', 'basket', 'car', 'caradmin', 'checkout', 'editprofileimage', 'faq', 'home', 'login', 'logout', 'results', 'search', 'useradmin'];
+$pages = ['accessdenied', 'account', 'basket', 'car', 'caradmin', 'checkout', 'editprofileimage', 'faq', 'home', 'login', 'logout', 'results', 'search', 'useradmin'];
 $isUser = ($_SESSION['user_data']['user_type'] == 'USER');
 $isAdmin = ($_SESSION['user_data']['user_type'] == 'ADMIN');
 $isSuper = ($_SESSION['user_data']['user_type'] == 'SUPER');
 
 $visitor_notallowed = ['caradmin', 'useradmin', 'basket', 'account'];
-$user_notallowed = ['caradmin', 'useradmin'];
-$admin_notallowed = ['useradmin'];
-
-
+$user_notallowed = ['caradmin', 'useradmin', 'login'];
+$admin_notallowed = ['useradmin', 'login'];
 
 if($isVisitor) {
     if(in_array($page, $visitor_notallowed)) {
-        echo "not allowed";
-        exit();
+        $page = 'accessdenied';
     }
 } else if($isUser) {
     if(in_array($page, $user_notallowed)) {
-        echo "not allowed";
-        exit();
+        $page = 'accessdenied';
     }
 } else if($isAdmin) {
     if(in_array($page, $admin_notallowed)) {
-        echo "not allowed";
-        exit();
+        $page = 'accessdenied';
     }
 }
+
 if(!$page){
     $page = "home";
 } else if (!(in_array($page, $pages))) {
     $page = '404';
 }
-
 
 // assume allowed
 require_once(__DIR__.'/includes/header.php');

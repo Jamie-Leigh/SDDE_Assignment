@@ -9,18 +9,6 @@ $(function(){
     });
   
     $('body').on('click', '.save', function (e) {
-      var car_id = $(this).data('carid');
-      $.ajax({
-        method: "POST",
-        url: "./ajax/editcar.php",
-        dataType: 'json',
-        data: { car_id: car_id }
-      })
-      .done(function(rtnData) {
-        console.log(rtnData);
         $(`.save.${car_id}`).text('Edit').attr('class', `btn btn-ybac edit ${car_id}`);
-        window.location.reload();
-    });
-    
   })
 })

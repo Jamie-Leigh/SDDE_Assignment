@@ -11,14 +11,35 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/5f1e196da0.js" crossorigin="anonymous"></script>
-
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
-
+    <link rel="icon" href="./images/favicon.ico">
+    
   </head>
   <body id="page-<?php echo $page; ?>">
     <header>
-      <div class="page-header-top text-center text-md-start container">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+    setTimeout(function() {
+        $('.loggedInModal').fadeOut('slow');
+    }, 5000);
+    </script>
+    <?php
+    if ($_SESSION['show_login']) {
+      echo '<div class="myModal loggedInModal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Logged in successfully!</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      ';
+      $_SESSION['show_login'] = false;
+    }
+    ?>
+      <div class="page-header-top text-center text-md-start container" aria-label="YouBuyAnyCar logo">
         <a href="index.php"><img src="images/logo.png" alt="YouBuyAnyCar logo"></a>
       </div>
       <nav class="navbar navbar-expand-lg navbar-light">
@@ -48,13 +69,13 @@
               // if Admin
               if ($_SESSION['user_data']['user_type'] == 'ADMIN' || $_SESSION['user_data']['user_type'] == 'SUPER') { ?>
                 <li class="nav-item">
-                <a class="nav-link<?php echo $page == "carAdmin" ? " active" : "" ?>" href="index.php?p=caradmin">Car admin</a>
+                <a class="nav-link<?php echo $page == "caradmin" ? " active" : "" ?>" href="index.php?p=caradmin">Car admin</a>
                 </li>
               <?php
               // if SuperAdmin
               } if ($_SESSION['user_data']['user_type'] == 'SUPER') { ?>
                 <li class="nav-item">
-                <a class="nav-link<?php echo $page == "userAdmin" ? " active" : "" ?>" href="index.php?p=useradmin">User admin</a>
+                <a class="nav-link<?php echo $page == "useradmin" ? " active" : "" ?>" href="index.php?p=useradmin">User admin</a>
                 </li>
                 
               <?php } ?>

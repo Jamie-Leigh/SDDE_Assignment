@@ -36,13 +36,14 @@ $(function(){
     var user_id = $(this).data('userid');
     $.ajax({
       method: "POST",
-      url: "./ajax/clearbasket.php",
+      url: "./ajax/checkout.php",
       dataType: 'json',
       data: { user_id: user_id }
     })
     .done(function(rtnData) {
       console.log(rtnData);
     })
+    
   });
 
 })

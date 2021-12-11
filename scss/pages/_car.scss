@@ -1,16 +1,125 @@
 body#page-car {
-    .car-image-main {
+    .centralised {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    .car-photos {
+        display: grid;
+        grid-template-columns: 340px 1fr;
+        grid-template-rows: 340px 1fr;
+        grid-template-areas:
+        "main additional"
+        "description description";
+        width: 100%;
+
+        @media screen and (max-width: $mobileBreakPoint) {
+            grid-template-columns: 320px;
+            grid-template-rows: 340px auto 1fr;
+            grid-template-areas:
+            "main"
+            "additional"
+            "description";
+            width: auto;
+        }
+    }
+    .car-details {
+		color: #FFF;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto;
+            grid-template-areas:
+            "make model variant"
+            "mileage year_built seats"
+            "fuel_type transmission_type colour"
+            ". body_type ."
+            "description description description"
+            ". price .";
+        flex-direction: column;
+        width: 450px;
+        text-align: center;
+        row-gap: 10px;
+
+        @media screen and (max-width: $mobileBreakPoint) {
+            width: 300px;
+        }
+
+		.make {
+			grid-area: make;
+		}
+		.model {
+			grid-area: model;
+		}
+		.variant {
+			grid-area: variant;
+		}
+		.mileage {
+			grid-area: mileage;
+		}
+		.description {
+			grid-area: description;
+		}
+		.fuel {
+			grid-area: fuel_type;
+		}
+		.transmission {
+			grid-area: transmission_type;
+		}
+		.year_built {
+			grid-area: year_built;
+		}
+		.price {
+			grid-area: price;
+		}
+		.seats {
+			grid-area: seats;
+		}
+		.colour {
+			grid-area: colour;
+		}
+		.body_type {
+			grid-area: body_type;
+		}
+		.car_id {
+			grid-area: car_id;
+		}
+		.active {
+			grid-area: active;
+		}
+
+		.detail-title {
+			font-weight: 700;
+			color: white;
+			width: 100%;
+		}
+		.detail-content {
+			font-weight: 200;
+			color: white;
+			resize: none;
+			width: 100%;
+		}
+    }
+    .car-image-main {
+        grid-area: main;
         margin-bottom: 30px;
         img {
-            height: 400px;
+            height: 320px;
             border: 3px solid white;
         }
     }
+    .additional {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        width: auto;
+
+    }
     .car-image-additional {
+        grid-area: additional;
         border: solid 3px #FFF;
         height: 150px;
+        width: 150px;
         background-repeat: no-repeat;
         background-position: center center;
         -webkit-background-size: cover;
