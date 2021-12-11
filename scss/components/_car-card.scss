@@ -1,0 +1,148 @@
+.car-card {
+    margin: 0 0 30px 0;
+    background-color: #fff;
+    box-shadow: 2px 2px 4px 0 rgba(0,0,0,0.15);
+    padding: 12px;
+    text-align: center;
+    border: solid 1px #eaeaea;
+    border-radius: 15px;
+	height: 255px;
+	display: grid;
+	grid-template-columns: 200px auto;
+	grid-template-rows: 200px 40px;
+	grid-template-areas:
+	"image     description"
+	"car-title description";
+
+	@media screen and (max-width: 991px) {
+		 grid-template-columns: 180px auto;
+	// 	grid-template-areas:
+	// 	"image     description"
+	// 	"car-title .";
+	}
+
+
+	.car-card-image {
+		height: 200px;
+		width: 200px;
+		background-repeat: no-repeat;
+		background-position: center center;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		background-size: cover;
+		grid-area: image;
+		@media screen and (max-width: 991px) {
+			width: 180px;
+		}
+
+		a {
+			display: block;
+			height: 200px;
+			color: #000 !important;
+			text-decoration: inherit !important;
+		}
+
+		.car-card-text {
+			grid-area: car-title;
+			height: 40px;
+		}
+
+		h3 {
+			font-size: 1.1rem;
+			padding-top: 10px;
+			margin: 0;
+		}
+	}
+
+	.car-details {
+		grid-area: description;
+		padding-left: 10px;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr 4fr;
+		grid-template-rows: 1fr 1fr 1fr 40px;
+		grid-gap: 10px;
+		grid-template-areas:
+		"make      model      transmission_type  model_variant  description"
+		"mileage   fuel_type  year_built         car_id         description"
+		"seats     colour     body_type          active         price"
+		".         .          .                  .              button";
+
+		@media screen and (max-width: 991px) {
+			grid-template-columns: 1fr;
+			grid-template-rows: 1fr 1fr 1fr 40px;
+			grid-template-areas:
+			"description"
+			"description"
+			"price"
+			"button";
+		}
+
+		.make {
+			grid-area: make;
+		}
+		.model {
+			grid-area: model;
+		}
+		.model_variant {
+			grid-area: model_variant;
+		}
+		.mileage {
+			grid-area: mileage;
+		}
+		.description {
+			grid-area: description;
+		}
+		.fuel {
+			grid-area: fuel_type;
+		}
+		.transmission {
+			grid-area: transmission_type;
+		}
+		.year_built {
+			grid-area: year_built;
+		}
+		.price {
+			grid-area: price;
+		}
+		.seats {
+			grid-area: seats;
+		}
+		.colour {
+			grid-area: colour;
+		}
+		.body_type {
+			grid-area: body_type;
+		}
+		.car_id {
+			grid-area: car_id;
+		}
+		.active {
+			grid-area: active;
+		}
+
+		.make, .model, .model_variant, .mileage, .fuel, .transmission, .year_built, .seats, .colour, .body_type, .car_id, .active {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+			@media screen and (max-width: 991px) {
+				display: none;
+			}
+		}
+
+		.detail-title {
+			font-weight: 700;
+		}
+		.detail-content {
+			font-weight: 200;
+		}
+		.btn {
+			grid-area: button;
+			justify-self: center;
+			@media screen and (max-width: 425px) {
+				font-size: smaller;
+				padding: 0;
+			}
+		}
+	}
+}

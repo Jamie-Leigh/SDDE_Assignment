@@ -1,0 +1,13 @@
+{
+  "name": "multimedia-mobile-and-internet",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Jamie-Leigh/multimedia-mobile-and-internet.git",
+  "author": "Jamie-Leigh <s210901@uos.ac.uk>",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^5.1.1",
+    "jquery": "^3.6.0",
+    "lightbox2": "^2.11.3"
+  }
+}

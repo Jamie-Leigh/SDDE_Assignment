@@ -1,0 +1,26 @@
+body#page-car {
+    .car-image-main {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+        img {
+            height: 400px;
+            border: 3px solid white;
+        }
+    }
+    .car-image-additional {
+        border: solid 3px #FFF;
+        height: 150px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        
+        a {
+            display: block;
+            height: auto;
+        }
+    }
+}

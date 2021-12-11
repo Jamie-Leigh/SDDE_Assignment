@@ -1,0 +1,23 @@
+body#page-login {
+    form {
+        label {
+            color: #fff !important;
+        }
+        &#registration-form {
+            background-color: $secondary-color;
+            padding: 10px;
+            border-radius: 3px;
+            label {
+                color: $primary-color;
+            }
+            .btn {
+                background-color: #fff;
+                color: $primary-color;
+                border-top: 5px;
+            }
+        }
+        .btn-ybac {
+            margin-top: 10px
+        }
+    }
+}
