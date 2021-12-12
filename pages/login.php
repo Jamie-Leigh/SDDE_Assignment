@@ -139,7 +139,7 @@
             <label for="reg_postcode">Postcode</label>
             <input type="text" class="form-control" id="postcode" name="postcode">
         </div>
-        <button type="submit" name="reg" value="1" class="btn btn-ybac">Register and login</button>
+        <button type="submit" name="reg" value="1" class="btn btn-sevent">Register and login</button>
         </form>
     </div>
     <div class="col-lg-6">
@@ -153,7 +153,7 @@
             <input type="password" class="form-control" id="login_password" name="password">
             <input type="checkbox" onclick="showHidePassword('login_password')">Show Password
         </div>
-        <button type="submit" name="login" value="1" class="btn btn-ybac">Login</button>
+        <button type="submit" name="login" value="1" class="btn btn-sevent">Login</button>
         </form>
     </div>
     </div>

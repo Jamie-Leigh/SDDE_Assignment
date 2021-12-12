@@ -1,25 +1,26 @@
 @import '../node_modules/lightbox2/dist/css/lightbox.min.css';
 * {
   font-family: "Roboto";
+  color: black;
 }
 
 h1 {
   font-weight: 100;
-  color: #fff;
+  color: #E5515F;
   font-size: 2.2rem;
-  border-bottom: solid 2px #5c80bc;
+  border-bottom: solid 2px #459EF3;
   padding-top: 10px;
 }
 
 h2 {
-  color: #fff;
+  color: #E5515F;
   font-weight: 100;
   font-size: 2rem;
 }
 
 p {
-  color: #fff;
-  font-weight: 300;
+  color: #E5515F;
+  font-weight: 400;
   line-height: 1.8rem;
 }
 
@@ -28,7 +29,7 @@ header .page-header-top img {
 }
 
 header nav {
-  background-color: #5c80bc !important;
+  background-color: #459EF3 !important;
 }
 header nav a,
 header nav a:hover,
@@ -38,7 +39,7 @@ header nav a:active {
   color: #393e4f;
 }
 header nav .active {
-  color: #e8c547 !important;
+  color: #E5515F !important;
 }
 header nav .navbar-brand {
   font-family: "Bangers", cursive;
@@ -49,14 +50,14 @@ footer p {
   text-align: center !important;
 }
 
-.btn.btn-ybac {
-  background-color: #5c80bc;
-  color: #30323d !important;
+.btn.btn-sevent {
+  background-color: #459EF3;
+  color: #E6E8E6 !important;
 }
 
 .car-card {
   margin: 0 0 30px 0;
-  background-color: #fff;
+  background-color: #E5515F;
   box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.15);
   padding: 12px;
   text-align: center;
@@ -91,7 +92,7 @@ footer p {
 .car-card .car-card-image a {
   display: block;
   height: 200px;
-  color: #000 !important;
+  color: #E5515F !important;
   text-decoration: inherit !important;
 }
 .car-card .car-card-image .car-card-text {
@@ -174,12 +175,12 @@ footer p {
 }
 .car-card .car-details .detail-title {
   font-weight: 700;
-  color: black;
+  color: #E5515F;
   width: 100%;
 }
 .car-card .car-details .detail-content {
   font-weight: 200;
-  color: black;
+  color: #E5515F;
   resize: none;
   width: 100%;
 }
@@ -226,13 +227,13 @@ footer p {
   align-items: center;
 }
 .modal-body p {
-  color: black;
+  color: #E5515F;
 }
 
 .spinner {
-  border: 4px solid #5c80bc;
+  border: 4px solid #459EF3;
   border-radius: 50%;
-  border-top: 4px solid #30323d;
+  border-top: 4px solid #E6E8E6;
   width: 40px;
   height: 40px;
   animation: spin 1.5s linear infinite;
@@ -274,7 +275,7 @@ p {
 }
 .loggedInModal .modal-dialog > .modal-content {
   background-color: rgba(0, 255, 0, 0.5);
-  border: #e8c547 solid 1px;
+  border: #E5515F solid 1px;
 }
 .loggedInModal .modal-dialog > .modal-content .border-header {
   border-bottom: none !important;
@@ -297,7 +298,7 @@ p {
 .search .search {
   grid-area: search;
 }
-.search .btn-ybac {
+.search .btn-sevent {
   grid-area: button;
   width: min-content;
 }
@@ -309,7 +310,7 @@ p {
   grid-template-areas: "min-price min-mileage" "max-price max-mileage" "fuel-type trans-type";
   grid-column-gap: 80px;
   border-bottom: 10px;
-  color: #5c80bc;
+  color: #459EF3;
   row-gap: 10px;
 }
 @media screen and (max-width: 768px) {
@@ -340,22 +341,22 @@ p {
 }
 
 body#page-login form label {
-  color: #fff !important;
+  color: #E5515F !important;
 }
 body#page-login form#registration-form {
-  background-color: #5c80bc;
+  background-color: #459EF3;
   padding: 10px;
   border-radius: 3px;
 }
 body#page-login form#registration-form label {
-  color: #30323d;
+  color: #E6E8E6;
 }
 body#page-login form#registration-form .btn {
-  background-color: #fff;
-  color: #30323d;
+  background-color: #E5515F;
+  color: #E6E8E6;
   border-top: 5px;
 }
-body#page-login form .btn-ybac {
+body#page-login form .btn-sevent {
   margin-top: 10px;
 }
 
@@ -380,7 +381,7 @@ body#page-car .car-photos {
   }
 }
 body#page-car .car-details {
-  color: #FFF;
+  color: #E5515F;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
@@ -465,7 +466,7 @@ body#page-car .additional {
 }
 body#page-car .car-image-additional {
   grid-area: additional;
-  border: solid 3px #FFF;
+  border: solid 3px #E5515F;
   height: 150px;
   width: 150px;
   background-repeat: no-repeat;
@@ -546,7 +547,7 @@ body#page-car .car-image-additional a {
   align-items: center;
 }
 .modal-body p {
-  color: black;
+  color: #E5515F;
 }
 
 .noResults {
@@ -556,7 +557,7 @@ body#page-car .car-image-additional a {
 }
 
 body {
-  background-color: #30323d !important;
+  background-color: #E6E8E6 !important;
 }
 
 img {

@@ -15,7 +15,7 @@
                 require(__DIR__.'/../includes/carCard.php');
             }
         } else {
-            echo '<div class="noResults"><p>No results found!</p><p><a class="btn btn-ybac centralised" href="index.php">Go home</a></p></div>';
+            echo '<div class="noResults"><p>No results found!</p><p><a class="btn btn-sevent centralised" href="index.php">Go home</a></p></div>';
         }
         ?>
     </div>

@@ -24,7 +24,7 @@ body#page-car {
         }
     }
     .car-details {
-		color: #FFF;
+		color: $tertiary-color;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
             grid-template-rows: auto;
@@ -117,7 +117,7 @@ body#page-car {
     }
     .car-image-additional {
         grid-area: additional;
-        border: solid 3px #FFF;
+        border: solid 3px $tertiary-color;
         height: 150px;
         width: 150px;
         background-repeat: no-repeat;

@@ -15,7 +15,7 @@
                 echo '<div class="total-price">Total price of your basket: £'.number_format($totalPrice).'</div>
                     <div class="checkoutButton">
                     <form method="post" action="index.php?p=checkout">
-                        <button type="submit" class="btn btn-ybac checkout" data-userid="'.$_SESSION["user_data"]["user_id"].'">Checkout</button>
+                        <button type="submit" class="btn btn-sevent checkout" data-userid="'.$_SESSION["user_data"]["user_id"].'">Checkout</button>
                     </form>
                   </div>';
         } else {
@@ -23,7 +23,7 @@
                 <h3>Basket is empty</h3>
                 <div class="goHomeButton">
                     <form method="post" action="index.php">
-                        <button type="submit" class="btn btn-ybac">Click here to find cars</button>
+                        <button type="submit" class="btn btn-sevent">Click here to find cars</button>
                     </form>
                 </div>
                 ';

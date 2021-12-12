@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Quick and affordable  cars – YouBuyAnyCar</title>
+    <title>Easily hire a great car – Sevent</title>
     <link rel="stylesheet" href="./css/styles.css"/>
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,8 +39,8 @@
       $_SESSION['show_login'] = false;
     }
     ?>
-      <div class="page-header-top text-center text-md-start container" aria-label="YouBuyAnyCar logo">
-        <a href="index.php"><img src="images/logo.png" alt="YouBuyAnyCar logo"></a>
+      <div class="page-header-top text-center text-md-start container" aria-label="sevent logo">
+        <a href="index.php"><img src="images/logo.png" alt="sevent logo"></a>
       </div>
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">

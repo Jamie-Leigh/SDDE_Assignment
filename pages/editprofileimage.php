@@ -29,7 +29,7 @@
                         </p>
                     <input type="file" name="photo" class="form-control-file">
                 </div>
-                <button class="btn btn-ybac" type="submit">Update Profile Photo</button>
+                <button class="btn btn-sevent" type="submit">Update Profile Photo</button>
             </form>
         </div>
     </div>

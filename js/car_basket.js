@@ -9,7 +9,7 @@ $(function(){
     })
     .done(function(rtnData) {
       console.log(rtnData);
-      $(`.${car_id}`).text('Remove from Basket').attr('class', `btn btn-ybac addToBasket remove ${car_id}`);
+      $(`.${car_id}`).text('Remove from Basket').attr('class', `btn btn-sevent addToBasket remove ${car_id}`);
     })
   });
 
@@ -27,7 +27,7 @@ $(function(){
       if (page == "basket") {
         window.location.reload();
       } else {
-        $(`.${car_id}`).text('Add to Basket').attr('class', `btn btn-ybac addToBasket add ${car_id}`);
+        $(`.${car_id}`).text('Add to Basket').attr('class', `btn btn-sevent addToBasket add ${car_id}`);
       }
     })
   });

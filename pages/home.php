@@ -1,16 +1,16 @@
 <div class="container">
-  <h1 class="mb-4 pb-2">Welcome to YouBuyAnyCar</h1>
+  <h1 class="mb-4 pb-2">Welcome to Sevent</h1>
   <div class="row">
     <div class="col-lg-8 filter-container">
       <p>
-        We offer a wide range of used cars for you to buy at a great price. You can collect your car from any of our dealerships across the UK.
-        If you wish to buy a car today, you'll need to <a href="index.php?p=login">register or login</a>.
+        We offer a wide range of used cars for you to hire at a great price. You can collect your car from any of our dealerships across the UK.
+        If you wish to hire a car today, you'll need to <a href="index.php?p=login">register or login</a>.
         If you have any questions, please see our <a href="index.php?p=faq">FAQ page</a>.
       </p>
       <p>If you know what make of car you're after, type it into the search box below:</p>
       <form action="index.php?p=results" class="search" method="post" class="d-flex">
         <input class="form-control search mr-sm2" type="search" id="search" name="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-ybac" type="submit">Search</button>
+        <button class="btn btn-sevent" type="submit">Search</button>
       </form>
       <br />
       <p>Or, you can refine your search using the filters below.</p>
@@ -88,21 +88,17 @@
               </select>
             </div>
             </div>
-            <button type="submit" name="filter" value="1" class="btn btn-ybac">Search</button>
+            <button type="submit" name="filter" value="1" class="btn btn-sevent">Search</button>
         </form>
       </div>
     <div class="col-lg-4">
       <h2>Our locations:</h2>
-      <div id='map' aria-label="Interactive map to show locations"></div>
-      <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoiamFtaWUtbGVpZ2giLCJhIjoiY2t3cGV2Ymx0MDh0bzJ1cnRhcGduNGJqYiJ9.atGN7v9atiuCwDxcz1HCiw';
-        const map = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/jamie-leigh/ckwpfte9o912714p482u4ddrb',
-            center: [-1.4, 53.2],
-            zoom: 4.3
-        });
-      </script>
-    </div>
+      <ul>
+        <li>London (HQ)</li>
+        <li>Ipswich</li>
+        <li>Bath</li>
+        <li>Newcastle</li>
+      </ul>
+      
   </div>
 </div>

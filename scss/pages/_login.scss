@@ -1,7 +1,7 @@
 body#page-login {
     form {
         label {
-            color: #fff !important;
+            color: $tertiary-color !important;
         }
         &#registration-form {
             background-color: $secondary-color;
@@ -11,12 +11,12 @@ body#page-login {
                 color: $primary-color;
             }
             .btn {
-                background-color: #fff;
+                background-color: $tertiary-color;
                 color: $primary-color;
                 border-top: 5px;
             }
         }
-        .btn-ybac {
+        .btn-sevent {
             margin-top: 10px
         }
     }
