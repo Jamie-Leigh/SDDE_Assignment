@@ -1,0 +1,70 @@
+{
+    "packages": [
+        {
+            "name": "socketlabs/email-delivery",
+            "version": "1.2.1",
+            "version_normalized": "1.2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/socketlabs/socketlabs-php.git",
+                "reference": "415580a637d059b9d56ed7ddb76d0997e4dc0ed1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/socketlabs/socketlabs-php/zipball/415580a637d059b9d56ed7ddb76d0997e4dc0ed1",
+                "reference": "415580a637d059b9d56ed7ddb76d0997e4dc0ed1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "time": "2021-04-21T17:31:54+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Socketlabs\\": "InjectionApi/src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "SocketLabs",
+                    "email": "developers@socketlabs.com",
+                    "homepage": "https://www.socketlabs.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Bernie Harrison",
+                    "email": "developers@socketlabs.com",
+                    "homepage": "https://www.socketlabs.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Praneeth Chandra",
+                    "email": "developers@socketlabs.com",
+                    "homepage": "https://www.socketlabs.com",
+                    "role": "Developer/Contributor"
+                }
+            ],
+            "description": "SocketLabs Email Delivery PHP Client Library ",
+            "homepage": "https://github.com/socketlabs/socketlabs-php",
+            "keywords": [
+                "deliverability",
+                "email",
+                "socketlabs",
+                "transactional-email"
+            ],
+            "support": {
+                "issues": "https://github.com/socketlabs/socketlabs-php/issues",
+                "source": "https://github.com/socketlabs/socketlabs-php/tree/1.2.1"
+            },
+            "install-path": "../socketlabs/email-delivery"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}

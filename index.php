@@ -1,8 +1,10 @@
 <?php
 error_reporting(E_ALL & ~E_NOTICE);
+session_set_cookie_params(0);
 session_start();
 require_once(__DIR__.'/includes/autoloader.php');
 require_once(__DIR__.'/includes/database.php');
+include_once ('./vendor/autoload.php');
 if($_SESSION['user_data']) {
     $User = new User($Conn);
     $user_data = $User->getUser();
