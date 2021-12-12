@@ -73,13 +73,13 @@ class Car {
                 $query .= " AND mileage <= :max_mileage";
                 $data['max_mileage'] = $car_filters['mileage']['max_mileage'];
             }
-            if ($car_filters['fuel_type']) {
-                $query .= " AND fuel = :fuel_type";
-                $data['fuel_type'] = $car_filters['fuel_type'];
+            if ($car_filters['fuel']) {
+                $query .= " AND fuel = :fuel";
+                $data['fuel'] = $car_filters['fuel'];
             }
-            if ($car_filters['transmission_type']) {
-                $query .= " AND transmission = :transmission_type";
-                $data['transmission_type'] = $car_filters['transmission_type'];
+            if ($car_filters['transmission']) {
+                $query .= " AND transmission = :transmission";
+                $data['transmission'] = $car_filters['transmission'];
             }
             $query .= ";";
             $stmt = $this->Conn->prepare($query);

@@ -46,11 +46,11 @@
               <select class="form-control" id="fuel_type" name="fuel_type" aria-label="fuel type dropdown">
                 <option selected value="">Choose a fuel type</option>
                 <option value="">Any</option>
-                <option>Petrol</option>
-                <option>Diesel</option>
-                <option>LPG</option>
-                <option>Electric</option>
-                <option>Hybrid</option>
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="LPG">LPG</option>
+                <option value="Electric">Electric</option>
+                <option value="Hybrid">Hybrid</option>
               </select>
             </div>
             <div class="form-group min-mileage">
@@ -82,9 +82,9 @@
               <select class="form-control" id="transmission_type" name="transmission_type" aria-label="transmission type dropdown">
                 <option selected value="">Choose a transmission type</option>
                 <option value="">Any</option>
-                <option>Manual</option>
-                <option>Automatic</option>
-                <option>Semi-automatic</option>
+                <option value="Manual">Manual</option>
+                <option value="Automatic">Automatic</option>
+                <option value="Semi-automatic">Semi-automatic</option>
               </select>
             </div>
             </div>
