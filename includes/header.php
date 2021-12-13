@@ -14,6 +14,11 @@
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
     <link rel="icon" href="./images/favicon.ico">
+    <script type="module" src="./js/calendar.js"></script>
+    
+
+    <link href='./vendor/fullcalendar-5.10.1/lib/main.css' rel='stylesheet' />
+    <script src='./vendor/fullcalendar-5.10.1/lib/main.js'></script>
     
   </head>
   <body id="page-<?php echo $page; ?>">
@@ -50,7 +55,7 @@
           <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link<?php echo $page == "home" ? " active" : "" ?>" href="index.php?p=home">Home</a>
+              <a class="nav-link<?php echo $page == "home" ? " active" : "" ?>" href="index.php">Home</a>
             </li>
             <li class="nav-item">
             <a class="nav-link<?php echo $page == "faq" ? " active" : "" ?>" href="index.php?p=faq">FAQ</a>

@@ -1,3 +1,7 @@
+<?php
+$_SESSION['dates'] = null;
+?>
+
 <div class="container">
   <h1 class="mb-4 pb-2">Welcome to Sevent</h1>
   <div class="row">
@@ -7,15 +11,11 @@
         If you wish to hire a car today, you'll need to <a href="index.php?p=login">register or login</a>.
         If you have any questions, please see our <a href="index.php?p=faq">FAQ page</a>.
       </p>
-      <p>If you know what make of car you're after, type it into the search box below:</p>
-      <form action="index.php?p=results" class="search" method="post" class="d-flex">
-        <input class="form-control search mr-sm2" type="search" id="search" name="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-sevent" type="submit">Search</button>
-      </form>
       <br />
       <p>Or, you can refine your search using the filters below.</p>
       <p>If you just want to see all the cars we have available, leave the filters blank and click 'Search'.</p>
       <div class="filters">
+      <div id='calendar'></div>
         <form id="filter-form" method=post action="index.php?p=results">
             <div class="form-group min-price">
               <label for="min_price">Min Price</label>
@@ -88,7 +88,7 @@
               </select>
             </div>
             </div>
-            <button type="submit" name="filter" value="1" class="btn btn-sevent">Search</button>
+            <button type="submit" name="filter" value="1" class="btn getEvents btn-sevent">Search</button>
         </form>
       </div>
     <div class="col-lg-4">
