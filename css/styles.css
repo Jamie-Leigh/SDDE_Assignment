@@ -1,25 +1,25 @@
 @import '../node_modules/lightbox2/dist/css/lightbox.min.css';
 * {
   font-family: "Roboto";
-  color: black;
+  color: #111111;
 }
 
 h1 {
   font-weight: 100;
-  color: #E5515F;
+  color: #111111;
   font-size: 2.2rem;
   border-bottom: solid 2px #459EF3;
   padding-top: 10px;
 }
 
 h2 {
-  color: #E5515F;
+  color: #111111;
   font-weight: 100;
   font-size: 2rem;
 }
 
 p {
-  color: #E5515F;
+  color: #111111;
   font-weight: 400;
   line-height: 1.8rem;
 }
@@ -36,10 +36,10 @@ header nav a:hover,
 header nav a:active {
   text-transform: uppercase;
   font-weight: 500;
-  color: #393e4f;
+  color: #111111;
 }
 header nav .active {
-  color: #E5515F !important;
+  color: #ee1 !important;
 }
 header nav .navbar-brand {
   font-family: "Bangers", cursive;
@@ -57,7 +57,7 @@ footer p {
 
 .car-card {
   margin: 0 0 30px 0;
-  background-color: #E5515F;
+  background-color: #111111;
   box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.15);
   padding: 12px;
   text-align: center;
@@ -92,7 +92,7 @@ footer p {
 .car-card .car-card-image a {
   display: block;
   height: 200px;
-  color: #E5515F !important;
+  color: #111111 !important;
   text-decoration: inherit !important;
 }
 .car-card .car-card-image .car-card-text {
@@ -175,12 +175,12 @@ footer p {
 }
 .car-card .car-details .detail-title {
   font-weight: 700;
-  color: #E5515F;
+  color: #111111;
   width: 100%;
 }
 .car-card .car-details .detail-content {
   font-weight: 200;
-  color: #E5515F;
+  color: #111111;
   resize: none;
   width: 100%;
 }
@@ -227,7 +227,7 @@ footer p {
   align-items: center;
 }
 .modal-body p {
-  color: #E5515F;
+  color: #111111;
 }
 
 .spinner {
@@ -275,32 +275,19 @@ p {
 }
 .loggedInModal .modal-dialog > .modal-content {
   background-color: rgba(0, 255, 0, 0.5);
-  border: #E5515F solid 1px;
+  border: #332211 solid 1px;
 }
 .loggedInModal .modal-dialog > .modal-content .border-header {
   border-bottom: none !important;
   justify-content: center !important;
 }
 
-.search {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: "search ." "button .";
-  grid-column-gap: 80px;
-  grid-row-gap: 10px;
+#calendar .fc-button-group .fc-button {
+  background-color: #459EF3;
+  color: #111111;
 }
-@media screen and (max-width: 768px) {
-  .search {
-    grid-template-columns: 1fr;
-    grid-template-areas: "search" "button";
-  }
-}
-.search .search {
-  grid-area: search;
-}
-.search .btn-sevent {
-  grid-area: button;
-  width: min-content;
+#calendar .fc-button-group .fc-button-active {
+  background-color: #332211;
 }
 
 #filter-form {
@@ -341,7 +328,7 @@ p {
 }
 
 body#page-login form label {
-  color: #E5515F !important;
+  color: #111111 !important;
 }
 body#page-login form#registration-form {
   background-color: #459EF3;
@@ -352,7 +339,7 @@ body#page-login form#registration-form label {
   color: #E6E8E6;
 }
 body#page-login form#registration-form .btn {
-  background-color: #E5515F;
+  background-color: #111111;
   color: #E6E8E6;
   border-top: 5px;
 }
@@ -381,7 +368,7 @@ body#page-car .car-photos {
   }
 }
 body#page-car .car-details {
-  color: #E5515F;
+  color: #111111;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
@@ -440,12 +427,12 @@ body#page-car .car-details .active {
 }
 body#page-car .car-details .detail-title {
   font-weight: 700;
-  color: white;
+  color: #111111;
   width: 100%;
 }
 body#page-car .car-details .detail-content {
   font-weight: 200;
-  color: white;
+  color: #111111;
   resize: none;
   width: 100%;
 }
@@ -466,7 +453,7 @@ body#page-car .additional {
 }
 body#page-car .car-image-additional {
   grid-area: additional;
-  border: solid 3px #E5515F;
+  border: solid 3px #332211;
   height: 150px;
   width: 150px;
   background-repeat: no-repeat;
@@ -489,16 +476,13 @@ body#page-car .car-image-additional a {
 .row {
   flex-direction: column;
   align-content: center;
-  color: white;
+  color: #111111;
   text-align: center;
 }
 .row .goHomeButton {
   width: auto;
 }
 
-.accordion {
-  background-color: blue;
-}
 .accordion #map {
   width: 200px;
   height: 200px;
@@ -547,7 +531,7 @@ body#page-car .car-image-additional a {
   align-items: center;
 }
 .modal-body p {
-  color: #E5515F;
+  color: #111111;
 }
 
 .noResults {

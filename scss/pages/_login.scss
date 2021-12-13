@@ -1,7 +1,7 @@
 body#page-login {
     form {
         label {
-            color: $tertiary-color !important;
+            color: $font-color !important;
         }
         &#registration-form {
             background-color: $secondary-color;
@@ -11,7 +11,7 @@ body#page-login {
                 color: $primary-color;
             }
             .btn {
-                background-color: $tertiary-color;
+                background-color: $font-color;
                 color: $primary-color;
                 border-top: 5px;
             }

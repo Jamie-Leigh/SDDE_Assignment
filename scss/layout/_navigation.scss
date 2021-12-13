@@ -7,10 +7,10 @@ header {
         a:active {
             text-transform: uppercase;
             font-weight: 500;
-            color: #393e4f;
+            color: $font-color;
         }
         .active {
-            color: $tertiary-color !important;
+            color: $active-color !important;
         }
         
         .navbar-brand {

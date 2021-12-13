@@ -24,7 +24,7 @@ body#page-car {
         }
     }
     .car-details {
-		color: $tertiary-color;
+		color: $font-color;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
             grid-template-rows: auto;
@@ -89,12 +89,12 @@ body#page-car {
 
 		.detail-title {
 			font-weight: 700;
-			color: white;
+			color: $font-color;
 			width: 100%;
 		}
 		.detail-content {
 			font-weight: 200;
-			color: white;
+			color: $font-color;
 			resize: none;
 			width: 100%;
 		}

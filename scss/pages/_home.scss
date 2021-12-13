@@ -18,7 +18,7 @@ p {
     position: absolute;
 
     .modal-dialog > .modal-content {
-        background-color: rgba(0,255,0, 0.5);
+        background-color: $success-color;
         border: $tertiary-color solid 1px;
         .border-header {
             border-bottom: none !important;
@@ -26,29 +26,17 @@ p {
         }
     }
 }
-.search {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-    "search ."
-    "button .";
-    grid-column-gap: 80px;
-    grid-row-gap: 10px;
+#calendar {
+    .fc-button-group {
+        .fc-button {
+            background-color: $secondary-color;
+            color: $font-color;
 
-    @media screen and (max-width: $mobileBreakPoint) {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-        "search"
-        "button";
-    }
+            &-active {
+                background-color: $tertiary-color;
+            }
+        }
 
-
-    .search {
-        grid-area: search;
-    }
-    .btn-sevent {
-        grid-area: button;
-        width: min-content;
     }
 }
 
