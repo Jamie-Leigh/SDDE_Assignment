@@ -1,16 +1,16 @@
 <?php
-    $Basket = new Basket($Conn);
-    $Car = new Car($Conn);
-    $cars = $Car->getAllFilteredActiveCars($_POST);
     $attributesToHide = ["car_id", "image", "active"];
-    var_dump($_SESSION['dates']);
     // sometimes the page loads before ajax/calendar.php has had a chance to set $_SESSION['dates]. Added flag so it only does it once.
-    if (!$_SESSION['reloaded'] && $_SESSION['dates'] == null) {
+    if (!$_SESSION['reloaded'] && $_SESSION['date'] == null) {
         $_SESSION['reloaded'] = true;
         echo "<div>Loading cars</div>";
         header("Refresh:0");
     } else {
         $_SESSION['reloaded'] = false;
+        $Basket = new Basket($Conn);
+        $Car = new Car($Conn);
+        $cars = $Car->getAllFilteredActiveCars($_POST, $_SESSION['date']);
+        var_dump($cars);
     }
 ?>
 

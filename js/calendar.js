@@ -3,24 +3,28 @@ let calendarEl = document.getElementById('calendar');
 
 let calendar = new FullCalendar.Calendar(calendarEl, {
     headerToolbar: {
-    left: 'prev,next today',
+    left: 'prev',
     center: 'title',
-    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+    right: 'next',
     },
-    navLinks: true,
     selectable: true,
     selectMirror: true,
-    eventLimit: true,
-
+    eventConstraint:{
+      start: '00:00', 
+      end: '24:00', 
+    },
     select: function(arg) {
-        const title = 'Hire period';
+      if (calendar.getEvents().length >= 1) {
+        alert('You can only book for one day. Please remove any other days by clicking on the event in the calendar.');
+      } else {
+        const title = 'Today';
         calendar.addEvent({
         title: title,
         start: arg.start,
-        end: arg.end,
         allDay: arg.allDay,
         })
         calendar.unselect()
+      }
     },
     eventClick: function(arg) {
     if (confirm('Are you sure you want to delete this event?')) {
@@ -28,7 +32,12 @@ let calendar = new FullCalendar.Calendar(calendarEl, {
     }
     },
     editable: true,
-    events: []
+    events: [
+    //   {
+    //     title: 'Hire period',
+    //     start: '2021-12-01'
+    //   }
+    ]
 });
 
 calendar.render();
@@ -36,37 +45,26 @@ calendar.render();
 
 
 $('body').on('click', '.getEvents', function (e) {
-    
-    const getDates = ((startDate, endDate) => {
-        const dates = [];
-        let currentDate = startDate;
-        const addDays = function (days) {
-          const date = new Date(this.valueOf());
-          date.setDate(date.getDate() + days);
-          return date;
-        }
-        while (currentDate < endDate) {
-          dates.push(currentDate.toISOString().split('T')[0]);
-          currentDate = addDays.call(currentDate, 1);
-        }
-        return dates;
-    });
-    
-    const startDate = calendar.getEvents()[0]['start'];
-    const endDate = new Date(calendar.getEvents()[0]['end']);
 
-    const selectedDates = getDates(startDate, endDate);
+  if (calendar.getEvents().length > 1) {
+    alert('Please only have one event on the calendar.');
+  } else {
 
+
+  const date = calendar.getEvents()[0].startStr;
+  console.log(calendar.getEvents()[0].startStr);
+    
     $.ajax({
         method: "POST",
         url: "./ajax/calendar.php",
         dataType: 'json',
         data: {
-            selectedDates: selectedDates
+            date: date
         }
       })
       .done(function(rtnData) {
         console.log(rtnData);
       })
+    }
 });
 });

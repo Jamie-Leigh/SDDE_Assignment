@@ -1,25 +1,39 @@
 <?php
-$_SESSION['dates'] = null;
+$_SESSION['date'] = null;
 ?>
 
 <div class="container">
   <h1 class="mb-4 pb-2">Welcome to Sevent</h1>
   <div class="row">
-    <div class="col-lg-8 filter-container">
+    <div class="col-lg-8 info">
       <p>
         We offer a wide range of used cars for you to hire at a great price. You can collect your car from any of our dealerships across the UK.
         If you wish to hire a car today, you'll need to <a href="index.php?p=login">register or login</a>.
         If you have any questions, please see our <a href="index.php?p=faq">FAQ page</a>.
       </p>
-      <br />
-      <p>Or, you can refine your search using the filters below.</p>
-      <p>If you just want to see all the cars we have available, leave the filters blank and click 'Search'.</p>
-      <div class="filters">
+    </div>
+    <div class="col-lg-4 locations">
+      <h2>Our locations:</h2>
+      <ul class="locations-list">
+        <li>London (HQ)</li>
+        <li>Ipswich</li>
+        <li>Bath</li>
+        <li>Newcastle</li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-lg-12 selection">
+    <div class="prompts">
+      <p>First, pick a date when you want to hire a car. Then, you are able to filter by features, if you want to.</p>
+      <p>If you just want to see all the cars we have available for that specific date, leave everything blank and just click 'Search'.</p>
+    </div>
+    <div class="search">
       <div id='calendar'></div>
+      <div class="filters-container">
         <form id="filter-form" method=post action="index.php?p=results">
             <div class="form-group min-price">
-              <label for="min_price">Min Price</label>
-              <select class="form-control" id="min_price" name="min_price" aria-label="min price dropdown">
+              <label for="min_price_per_day">Min Price</label>
+              <select class="form-control" id="min_price_per_day" name="min_price_per_day" aria-label="min price dropdown">
                 <option selected value="">Choose a minimum price</option>
                 <option value="">Any</option>
                 <option value="1500">£1500</option>
@@ -30,8 +44,8 @@ $_SESSION['dates'] = null;
               </select>
             </div>
             <div class="form-group max-price">
-              <label for="max_price">Max Price</label>
-              <select class="form-control" id="max_price" name="max_price" aria-label="max price dropdown">
+              <label for="max_price_per_day">Max Price</label>
+              <select class="form-control" id="max_price_per_day" name="max_price_per_day" aria-label="max price dropdown">
                 <option selected value="">Choose a maximum price</option>
                 <option value="">Any</option>
                 <option value="1500">£1500</option>
@@ -53,30 +67,6 @@ $_SESSION['dates'] = null;
                 <option value="Hybrid">Hybrid</option>
               </select>
             </div>
-            <div class="form-group min-mileage">
-              <label for="min_mileage">Min Mileage</label>
-              <select class="form-control" id="min_mileage" name="min_mileage" aria-label="Min mileage dropdown">
-                <option selected value="">Choose a minimum mileage</option>
-                <option value="">Any</option>
-                <option value="10000">10000</option>
-                <option value="30000">30000</option>
-                <option value="50000">50000</option>
-                <option value="75000">75000</option>
-                <option value="100000">100000</option>
-              </select>
-            </div>
-            <div class="form-group max-mileage">
-              <label for="max_mileage">Max Mileage</label>
-              <select class="form-control" id="max_mileage" name="max_mileage" aria-label="max mileage dropdown">
-                <option selected value="">Choose a maximum mileage</option>
-                <option value="">Any</option>
-                <option value="15000">15000</option>
-                <option value="35000">35000</option>
-                <option value="55000">55000</option>
-                <option value="80000">80000</option>
-                <option value="150000">150000</option>
-              </select>
-            </div>
             <div class="form-group transmission-type">
               <label for="transmission_type">Transmission Type</label>
               <select class="form-control" id="transmission_type" name="transmission_type" aria-label="transmission type dropdown">
@@ -87,18 +77,15 @@ $_SESSION['dates'] = null;
                 <option value="Semi-automatic">Semi-automatic</option>
               </select>
             </div>
+            <div class="button-container">
+              <button type="submit" name="filter" value="1" class="btn getEvents btn-sevent">Search</button>
             </div>
-            <button type="submit" name="filter" value="1" class="btn getEvents btn-sevent">Search</button>
+            </div>
         </form>
       </div>
-    <div class="col-lg-4">
-      <h2>Our locations:</h2>
-      <ul>
-        <li>London (HQ)</li>
-        <li>Ipswich</li>
-        <li>Bath</li>
-        <li>Newcastle</li>
-      </ul>
-      
+      <div class="image">
+        <img src="./images/red-car.png" />
+      </div>
+    </div>
   </div>
 </div>

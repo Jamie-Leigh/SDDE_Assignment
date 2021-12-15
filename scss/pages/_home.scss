@@ -26,32 +26,93 @@ p {
         }
     }
 }
+.selection {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 400px;
+    grid-template-areas:
+    "prompts prompts image"
+    "search  search  image";
+}
 #calendar {
-    .fc-button-group {
+    grid-area: calendar;
+    width: 300px;
+    height: 400px;
+
         .fc-button {
             background-color: $secondary-color;
             color: $font-color;
+
+            &-primary {
+                background-color: $secondary-color;
+            }
 
             &-active {
                 background-color: $tertiary-color;
             }
         }
 
+        .fc-toolbar-title {
+            font-size: 1.2em;
+        }
+        .fc-daygrid-day-events {
+            position: absolute;
+            min-height: 0.5em;
+            margin-top: -8px;
+            width: 45px;
+        }
+        .fc-daygrd-day-top {
+            height: 1em;
+        }
+}
+
+.prompts {
+    grid-area: prompts;
+}
+
+.search {
+    grid-area: search;
+    display: flex;
+    flex-direction: row;
+    column-gap: 40px;
+    align-items: flex-end;
+    > div:not(:first-of-type) {
+        align-self: end;
     }
+    .button-container > button {
+        width: 150px;
+        height: 55px;
+    }
+}
+
+.image {
+    grid-area: image;
+    img {
+        max-height: 100%;
+    }
+}
+
+.car-photo {
+    background-image: url('../images/red-car.png');
+}
+
+.locations-list {
+    list-style: none;
 }
 
 #filter-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-areas:
-  "min-price min-mileage"
-  "max-price max-mileage"
-  "fuel-type trans-type";
-  grid-column-gap: 80px;
+  "min-price max-price"
+  "fuel-type trans-type"
+  ". ."
+  "button button";
+  grid-column-gap: 40px;
   border-bottom: 10px;
   color: $secondary-color;
-  row-gap: 10px ;
+  row-gap: 30px ;
 
   @media screen and (max-width: $mobileBreakPoint) {
     grid-template-columns: 1fr;
@@ -72,16 +133,14 @@ p {
     .max-price {
         grid-area: max-price;
     }
-    .min-mileage {
-        grid-area: min-mileage;
-    }
-    .max-price {
-        grid-area: max-price;
-    }
     .fuel-type {
         grid-area: fuel-type;
     }
     .trans-type {
         grid-area: trans-type;
+    }
+    .button-container {
+        grid-area: button;
+        justify-self: center;
     }
 }

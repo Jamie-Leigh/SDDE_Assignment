@@ -50,19 +50,20 @@ class Car {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getAllFilteredActiveCars($filters) {
+    public function getAllFilteredActiveCars($filters, $date) {
+        // $date is an array the user passed in
         $car_filters = $this->generateParams($filters);
-        $query = "SELECT * FROM cars WHERE active = 1";
+        $query = "SELECT DISTINCT cars.* FROM cars INNER JOIN car_order ON cars.car_id = car_order.car_id WHERE active = 1";
         $data = [];
         if ($car_filters['search']) {
             $car_data = $this->searchCars($car_filters['search']);
         } else {
             if ($car_filters['price']['min_price']) {
-                $query .= " AND price >= :min_price";
+                $query .= " AND price_per_day >= :min_price";
                 $data['min_price'] = $car_filters['price']['min_price'];
             }
             if ($car_filters['price']['max_price']) {
-                $query .= " AND price <= :max_price";
+                $query .= " AND price_per_day <= :max_price";
                 $data['max_price'] = $car_filters['price']['max_price'];
             }
             if ($car_filters['mileage']['min_mileage']) {
@@ -81,8 +82,21 @@ class Car {
                 $query .= " AND transmission = :transmission";
                 $data['transmission'] = $car_filters['transmission'];
             }
-            $query .= ";";
-            $stmt = $this->Conn->prepare($query);
+            $fullQuery .= $query;
+            if ($date) {
+                $fullQuery .= " AND date <> :date";
+                $data["date"] = $date;
+            }
+            $fullQuery .= " AND NOT EXISTS (";
+            $fullQuery .= $query;
+            if ($date) {
+                $fullQuery .= " AND date = :date1)";
+                $data["date1"] = $date;
+            }
+            return ($fullQuery);
+            $fullQuery .= ";";
+            // return([$fullQuery, $data]);
+            $stmt = $this->Conn->prepare($fullQuery);
             $stmt->execute($data);
             $car_data = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }

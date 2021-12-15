@@ -52,7 +52,7 @@ footer p {
 
 .btn.btn-sevent {
   background-color: #459EF3;
-  color: #E6E8E6 !important;
+  color: white !important;
 }
 
 .car-card {
@@ -233,7 +233,7 @@ footer p {
 .spinner {
   border: 4px solid #459EF3;
   border-radius: 50%;
-  border-top: 4px solid #E6E8E6;
+  border-top: 4px solid white;
   width: 40px;
   height: 40px;
   animation: spin 1.5s linear infinite;
@@ -275,30 +275,88 @@ p {
 }
 .loggedInModal .modal-dialog > .modal-content {
   background-color: rgba(0, 255, 0, 0.5);
-  border: #332211 solid 1px;
+  border: #000000 solid 1px;
 }
 .loggedInModal .modal-dialog > .modal-content .border-header {
   border-bottom: none !important;
   justify-content: center !important;
 }
 
-#calendar .fc-button-group .fc-button {
+.selection {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 100px 400px;
+  grid-template-areas: "prompts prompts image" "search  search  image";
+}
+
+#calendar {
+  grid-area: calendar;
+  width: 300px;
+  height: 400px;
+}
+#calendar .fc-button {
   background-color: #459EF3;
   color: #111111;
 }
-#calendar .fc-button-group .fc-button-active {
-  background-color: #332211;
+#calendar .fc-button-primary {
+  background-color: #459EF3;
+}
+#calendar .fc-button-active {
+  background-color: #000000;
+}
+#calendar .fc-daygrid-day-events {
+  position: absolute;
+  min-height: 0.5em;
+  margin-top: -8px;
+  width: 45px;
+}
+#calendar .fc-daygrd-day-top {
+  height: 1em;
+}
+
+.prompts {
+  grid-area: prompts;
+}
+
+.search {
+  grid-area: search;
+  display: flex;
+  flex-direction: row;
+  column-gap: 40px;
+  align-items: flex-end;
+}
+.search > div:not(:first-of-type) {
+  align-self: end;
+}
+.search .button-container > button {
+  width: 150px;
+  height: 55px;
+}
+
+.image {
+  grid-area: image;
+}
+.image img {
+  max-height: 100%;
+}
+
+.car-photo {
+  background-image: url("../images/red-car.png");
+}
+
+.locations-list {
+  list-style: none;
 }
 
 #filter-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-areas: "min-price min-mileage" "max-price max-mileage" "fuel-type trans-type";
-  grid-column-gap: 80px;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "min-price max-price" "fuel-type trans-type" ". ." "button button";
+  grid-column-gap: 40px;
   border-bottom: 10px;
   color: #459EF3;
-  row-gap: 10px;
+  row-gap: 30px;
 }
 @media screen and (max-width: 768px) {
   #filter-form {
@@ -314,17 +372,15 @@ p {
 #filter-form .max-price {
   grid-area: max-price;
 }
-#filter-form .min-mileage {
-  grid-area: min-mileage;
-}
-#filter-form .max-price {
-  grid-area: max-price;
-}
 #filter-form .fuel-type {
   grid-area: fuel-type;
 }
 #filter-form .trans-type {
   grid-area: trans-type;
+}
+#filter-form .button-container {
+  grid-area: button;
+  justify-self: center;
 }
 
 body#page-login form label {
@@ -336,11 +392,11 @@ body#page-login form#registration-form {
   border-radius: 3px;
 }
 body#page-login form#registration-form label {
-  color: #E6E8E6;
+  color: white;
 }
 body#page-login form#registration-form .btn {
   background-color: #111111;
-  color: #E6E8E6;
+  color: white;
   border-top: 5px;
 }
 body#page-login form .btn-sevent {
@@ -453,7 +509,7 @@ body#page-car .additional {
 }
 body#page-car .car-image-additional {
   grid-area: additional;
-  border: solid 3px #332211;
+  border: solid 3px #000000;
   height: 150px;
   width: 150px;
   background-repeat: no-repeat;
@@ -541,7 +597,7 @@ body#page-car .car-image-additional a {
 }
 
 body {
-  background-color: #E6E8E6 !important;
+  background-color: white !important;
 }
 
 img {
