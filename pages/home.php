@@ -36,7 +36,7 @@ $_SESSION['date'] = null;
               <select class="form-control" id="min_price_per_day" name="min_price_per_day" aria-label="min price dropdown">
                 <option selected value="">Choose a minimum price</option>
                 <option value="">Any</option>
-                <option value="1500">£1500</option>
+                <option value="10">£1500</option>
                 <option value="3000">£3000</option>
                 <option value="5000">£5000</option>
                 <option value="7500">£7500</option>

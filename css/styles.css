@@ -57,7 +57,7 @@ footer p {
 
 .car-card {
   margin: 0 0 30px 0;
-  background-color: #111111;
+  background-color: #ccc;
   box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.15);
   padding: 12px;
   text-align: center;
@@ -303,6 +303,9 @@ p {
 }
 #calendar .fc-button-active {
   background-color: #000000;
+}
+#calendar .fc-toolbar-title {
+  font-size: 1.2em;
 }
 #calendar .fc-daygrid-day-events {
   position: absolute;

@@ -10,17 +10,11 @@ class Car {
             $params['search'] = $filters['search'];
         }
         else if ($filters['filter']) {
-            if($filters['min_price']) {
-                $params['price']['min_price'] = $filters['min_price'];
+            if($filters['min_price_per_day']) {
+                $params['price']['min_price'] = $filters['min_price_per_day'];
             }
-            if($filters['max_price']) {
-                $params['price']['max_price'] = $filters['max_price'];
-            }
-            if($filters['min_mileage']) {
-                $params['mileage']['min_mileage'] = $filters['min_mileage'];
-            }
-            if($filters['max_mileage']) {
-                $params['mileage']['max_mileage'] = $filters['max_mileage'];
+            if($filters['max_price_per_day']) {
+                $params['price']['max_price'] = $filters['max_price_per_day'];
             }
             if($filters['fuel_type']) {
                 $params['fuel'] = $filters['fuel_type'];
@@ -55,47 +49,47 @@ class Car {
         $car_filters = $this->generateParams($filters);
         $query = "SELECT DISTINCT cars.* FROM cars INNER JOIN car_order ON cars.car_id = car_order.car_id WHERE active = 1";
         $data = [];
+        $firstHalfQuery = $query;
+        $secondHalfQuery = $query;
         if ($car_filters['search']) {
             $car_data = $this->searchCars($car_filters['search']);
         } else {
             if ($car_filters['price']['min_price']) {
-                $query .= " AND price_per_day >= :min_price";
-                $data['min_price'] = $car_filters['price']['min_price'];
+                $firstHalfQuery .= " AND price_per_day >= :min_price";
+                $secondHalfQuery .= " AND price_per_day >= :min_price1";
+                $data['min_price'] = (int)$car_filters['price']['min_price'];
+                $data['min_price1'] = (int)$car_filters['price']['min_price'];
             }
             if ($car_filters['price']['max_price']) {
-                $query .= " AND price_per_day <= :max_price";
-                $data['max_price'] = $car_filters['price']['max_price'];
-            }
-            if ($car_filters['mileage']['min_mileage']) {
-                $query .= " AND mileage >= :min_mileage";
-                $data['min_mileage'] = $car_filters['mileage']['min_mileage'];
-            }
-            if ($car_filters['mileage']['max_mileage']) {
-                $query .= " AND mileage <= :max_mileage";
-                $data['max_mileage'] = $car_filters['mileage']['max_mileage'];
+                $firstHalfQuery .= " AND price_per_day <= :max_price";
+                $secondHalfQuery .= " AND price_per_day <= :max_price1";
+                $data['max_price'] = (int)$car_filters['price']['max_price'];
+                $data['max_price1'] = (int)$car_filters['price']['max_price'];
             }
             if ($car_filters['fuel']) {
-                $query .= " AND fuel = :fuel";
+                $firstHalfQuery .= " AND fuel = :fuel";
+                $secondHalfQuery .= " AND fuel = :fuel1";
                 $data['fuel'] = $car_filters['fuel'];
+                $data['fuel1'] = $car_filters['fuel'];
             }
             if ($car_filters['transmission']) {
-                $query .= " AND transmission = :transmission";
+                $firstHalfQuery .= " AND transmission = :transmission";
+                $secondHalfQuery .= " AND transmission = :transmission1";
                 $data['transmission'] = $car_filters['transmission'];
+                $data['transmission1'] = $car_filters['transmission'];
             }
-            $fullQuery .= $query;
+            $fullQuery .= $firstHalfQuery;
             if ($date) {
                 $fullQuery .= " AND date <> :date";
                 $data["date"] = $date;
             }
             $fullQuery .= " AND NOT EXISTS (";
-            $fullQuery .= $query;
+            $fullQuery .= $secondHalfQuery;
             if ($date) {
                 $fullQuery .= " AND date = :date1)";
                 $data["date1"] = $date;
             }
-            return ($fullQuery);
             $fullQuery .= ";";
-            // return([$fullQuery, $data]);
             $stmt = $this->Conn->prepare($fullQuery);
             $stmt->execute($data);
             $car_data = $stmt->fetchAll(PDO::FETCH_ASSOC);
