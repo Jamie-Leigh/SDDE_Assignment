@@ -33,10 +33,10 @@ let calendar = new FullCalendar.Calendar(calendarEl, {
     },
     editable: true,
     events: [
-    //   {
-    //     title: 'Hire period',
-    //     start: '2021-12-01'
-    //   }
+      {
+        title: 'Today',
+        start: new Date().toISOString().slice(0, 10),
+      }
     ]
 });
 
