@@ -44,12 +44,30 @@
 			));
 		}
 
+		private function getUserByEmail($user_email) {
+			$query = "SELECT email FROM user WHERE email = :email";
+			$stmt = $this->Conn->prepare($query);
+			$stmt->execute(array(
+				'email' => $user_email
+			));
+			$result = $stmt->fetch();
+			if ($result['email'] != null) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
 		public function createUser($user_data){
+			$emailAlreadyExists = $this->getUserByEmail($user_data['email']);
+			if ($emailAlreadyExists == true) {
+				return "exists";
+			}
 			$sec_password = password_hash($user_data['password'], PASSWORD_DEFAULT);
 			$query = "INSERT INTO user (first_name, surname, email, password, phone, address_line_1, address_line_2, address_line_3, postcode)
 			VALUES (:first_name, :surname, :email, :password, :phone, :address_line_1, :address_line_2, :address_line_3, :postcode)";
 			$stmt = $this->Conn->prepare($query);
-			return $stmt->execute(array(
+			$stmt->execute(array(
 				'first_name' => $user_data['first_name'],
 				'surname' => $user_data['surname'],
 				'email' => $user_data['email'],
@@ -60,6 +78,7 @@
 				'address_line_3' => $user_data['address_line_3'],
 				'postcode' => $user_data['postcode']
 			));
+			return 'created';
 		}
 
 		public function loginUser($user_data) {

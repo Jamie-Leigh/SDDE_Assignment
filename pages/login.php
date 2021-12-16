@@ -35,8 +35,13 @@
             } else {
                 //create and login user
                 $attempt = $User->createUser($_POST);
-                echo $attempt;
-                if ($attempt) {
+                if ($attempt == "exists") {
+                    ?>
+                    <div class="alert alert-danger" role="warning">
+                        A user with that email already exists. Try logging in instead!
+                    </div>
+                <?php
+                } else if ($attempt == "created") {
                     $user_data = $User->loginUser($_POST);
                     if ($user_data) {
                         $_SESSION['is_loggedin'] = true;
