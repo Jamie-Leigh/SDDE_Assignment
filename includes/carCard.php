@@ -20,7 +20,7 @@
                     if (($page == 'results' || $page == 'basket') && !in_array($detailName, $attributesToHide)) {
                         echo "<div class=".$detailName.">
                                 <div class='detail-title'>".ucwords(str_replace("_", " ", $detailName))."</div>
-                                <div class='detail-content'>".($detailName == 'price' ? "£".number_format($detail) : $detail)."</div>
+                                <div class='detail-content'>".($detailName == 'price_per_day' ? "£".number_format($detail) : $detail)."</div>
                             </div>";
                     }
                     if ($page == 'caradmin') {
@@ -63,7 +63,7 @@
                                     name=".$detailName."
                                     class='detail-content ".$detailName." ".$car['car_id']."'
                                     value='".$detail."' 
-                                    placeholder='".($detailName == 'price' ? "£".number_format($detail) : $detail)."'
+                                    placeholder='".($detailName == 'price_per_day' ? "£".number_format($detail) : $detail)."'
                                 >
                                 </input>
                             </div>";

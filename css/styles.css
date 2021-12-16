@@ -111,7 +111,7 @@ footer p {
   grid-template-columns: 1fr 1fr 1fr 1fr 4fr;
   grid-template-rows: 1fr 1fr 1fr 40px;
   grid-gap: 10px;
-  grid-template-areas: "make      model      transmission_type  date    description" "fuel_type year_built body_type          mileage description" "seats     colour     variant            car_id   price" ".         .          .                  .        button";
+  grid-template-areas: "make      model      transmission_type  date    description" "fuel_type year_built body_type          active description" "seats     colour     variant            car_id   price" ".         .          .                  .        button";
 }
 @media screen and (max-width: 991px) {
   .car-card .car-details {
@@ -128,9 +128,6 @@ footer p {
 }
 .car-card .car-details .variant {
   grid-area: variant;
-}
-.car-card .car-details .mileage {
-  grid-area: mileage;
 }
 .car-card .car-details .description {
   grid-area: description;
@@ -165,14 +162,14 @@ footer p {
 .car-card .car-details .date {
   grid-area: date;
 }
-.car-card .car-details .make, .car-card .car-details .model, .car-card .car-details .variant, .car-card .car-details .mileage, .car-card .car-details .fuel, .car-card .car-details .transmission, .car-card .car-details .year_built, .car-card .car-details .seats, .car-card .car-details .colour, .car-card .car-details .body_type, .car-card .car-details .car_id, .car-card .car-details .active {
+.car-card .car-details .make, .car-card .car-details .model, .car-card .car-details .variant, .car-card .car-details .fuel, .car-card .car-details .transmission, .car-card .car-details .year_built, .car-card .car-details .seats, .car-card .car-details .colour, .car-card .car-details .body_type, .car-card .car-details .car_id, .car-card .car-details .active {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
 @media screen and (max-width: 991px) {
-  .car-card .car-details .make, .car-card .car-details .model, .car-card .car-details .variant, .car-card .car-details .mileage, .car-card .car-details .fuel, .car-card .car-details .transmission, .car-card .car-details .year_built, .car-card .car-details .seats, .car-card .car-details .colour, .car-card .car-details .body_type, .car-card .car-details .car_id, .car-card .car-details .active {
+  .car-card .car-details .make, .car-card .car-details .model, .car-card .car-details .variant, .car-card .car-details .fuel, .car-card .car-details .transmission, .car-card .car-details .year_built, .car-card .car-details .seats, .car-card .car-details .colour, .car-card .car-details .body_type, .car-card .car-details .car_id, .car-card .car-details .active {
     display: none;
   }
 }
@@ -367,9 +364,9 @@ p {
 @media screen and (max-width: 768px) {
   #filter-form {
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-column-gap: 0px;
-    grid-template-areas: "min-price" "max-price" "min-mileage" "max-mileage" "fuel-type" "trans-type";
+    grid-template-areas: "min-price" "max-price" "fuel-type" "trans-type";
   }
 }
 #filter-form .min-price {
@@ -434,7 +431,7 @@ body#page-car .car-details {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
-  grid-template-areas: "make model variant" "mileage year_built seats" "fuel_type transmission_type colour" ". body_type ." "description description description" ". price .";
+  grid-template-areas: "make        model             variant" "year_built  body_type         seats" "fuel_type   transmission_type colour" "description description       description" "price       .                 date";
   flex-direction: column;
   width: 450px;
   text-align: center;
@@ -454,9 +451,6 @@ body#page-car .car-details .model {
 body#page-car .car-details .variant {
   grid-area: variant;
 }
-body#page-car .car-details .mileage {
-  grid-area: mileage;
-}
 body#page-car .car-details .description {
   grid-area: description;
 }
@@ -469,8 +463,11 @@ body#page-car .car-details .transmission {
 body#page-car .car-details .year_built {
   grid-area: year_built;
 }
-body#page-car .car-details .price {
+body#page-car .car-details .price_per_day {
   grid-area: price;
+}
+body#page-car .car-details .date {
+  grid-area: date;
 }
 body#page-car .car-details .seats {
   grid-area: seats;

@@ -2,7 +2,7 @@
   $Basket = new Basket($Conn);
   $Car = new Car($Conn);
   $car = $Car->getCar($_GET['id']);
-  $attributesToHide = ['car_id', 'mileage', 'active', 'image', 'images'];
+  $attributesToHide = ['car_id', 'active', 'image', 'images'];
   if(count($car) <= 1) {
     header("Location:index.php?p=404");
   }
@@ -32,7 +32,7 @@
                   if (!in_array($detailName, $attributesToHide)) {
                     echo "<div class=".$detailName.">
                         <div class='detail-title'>".ucwords(str_replace("_", " ", $detailName))."</div>
-                        <div class='detail-content'>".($detailName == 'price' ? "£".number_format($detail) : $detail)."</div>
+                        <div class='detail-content'>".($detailName == 'price_per_day' ? "£".number_format($detail) : $detail)."</div>
                     </div>";
                   }
                 }

@@ -76,7 +76,6 @@
                 } else {
                 //login
                 $user_data = $User->loginUser($_POST);
-                var_dump($user_data);
                 if (gettype($user_data) == "array") {
                     $_SESSION['is_loggedin'] = true;
                     $_SESSION['user_data'] = $user_data;

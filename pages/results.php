@@ -1,5 +1,5 @@
 <?php
-    $attributesToHide = ["car_id", "mileage", "image", "active"];
+    $attributesToHide = ["car_id","image", "active"];
     // sometimes the page loads before ajax/calendar.php has had a chance to set $_SESSION['date']. Added flag so it only does it once.
     if (!$_SESSION['reloaded'] && $_SESSION['date'] == null) {
         $_SESSION['postData'] = $_POST;
@@ -25,7 +25,7 @@
                 require(__DIR__.'/../includes/carCard.php');
             }
         } else {
-            echo '<div class="noResults"><p>No results found!</p><p><a class="btn btn-sevent centralised" href="index.php">Go home</a></p></div>';
+            echo '<div class="noResults"><p>No results found for that date! Try removing some filters or changing the dat</p><p><a class="btn btn-sevent centralised" href="index.php">Go home</a></p></div>';
         }
         ?>
     </div>

@@ -45,7 +45,6 @@ class Car {
     }
 
     public function getAllFilteredActiveCars($filters, $date) {
-        // $date is an array the user passed in
         $car_filters = $this->generateParams($filters);
         $query = "SELECT DISTINCT cars.* FROM cars INNER JOIN car_order ON cars.car_id = car_order.car_id WHERE active = 1";
         $data = [];
@@ -94,7 +93,9 @@ class Car {
             $stmt->execute($data);
             $car_data = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
-
+        foreach ($car_data as $index => $car) {
+            $car_data[$index]['date'] = $date;
+        }
         return $car_data;
     }
 
@@ -113,6 +114,8 @@ class Car {
         ]);
         $car_data['images'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+        $car_data['date'] = $_SESSION['date'];
+
         return $car_data;
     }
 
@@ -121,7 +124,6 @@ class Car {
         make = :make,
         model = :model,
         variant = :variant,
-        mileage = :mileage,
         year_built = :year_built,
         description = :description,
         fuel = :fuel,
@@ -137,7 +139,6 @@ class Car {
             'make' => $car_details['make'],
             'model' => $car_details['model'],
             'variant' => $car_details['variant'],
-            'mileage' => (int)$car_details['mileage'],
             'year_built' => (int)$car_details['year_built'],
             'description' => $car_details['description'],
             'fuel' => $car_details['fuel'],

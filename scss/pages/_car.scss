@@ -29,12 +29,11 @@ body#page-car {
         grid-template-columns: 1fr 1fr 1fr;
             grid-template-rows: auto;
             grid-template-areas:
-            "make model variant"
-            "mileage year_built seats"
-            "fuel_type transmission_type colour"
-            ". body_type ."
-            "description description description"
-            ". price .";
+            "make        model             variant"
+            "year_built  body_type         seats"
+            "fuel_type   transmission_type colour"
+            "description description       description"
+            "price       .                 date";
         flex-direction: column;
         width: 450px;
         text-align: center;
@@ -53,9 +52,6 @@ body#page-car {
 		.variant {
 			grid-area: variant;
 		}
-		.mileage {
-			grid-area: mileage;
-		}
 		.description {
 			grid-area: description;
 		}
@@ -68,9 +64,12 @@ body#page-car {
 		.year_built {
 			grid-area: year_built;
 		}
-		.price {
+		.price_per_day {
 			grid-area: price;
 		}
+        .date {
+            grid-area: date;
+        }
 		.seats {
 			grid-area: seats;
 		}
