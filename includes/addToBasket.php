@@ -12,7 +12,7 @@
     } else {
         ?>
         <form method="post" action="index.php?p=login" class="addToBasket">
-        <button id="loginBasket" type="submit" class="btn btn-sevent">Add to basket</button>
+            <button id="loginBasket" type="submit" class="btn btn-sevent">Add to basket</button>
         </form>
         <?php
     }

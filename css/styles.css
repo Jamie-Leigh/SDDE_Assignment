@@ -57,7 +57,7 @@ footer p {
 
 .car-card {
   margin: 0 0 30px 0;
-  background-color: #ccc;
+  background-color: #ddd;
   box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.15);
   padding: 12px;
   text-align: center;
@@ -202,6 +202,7 @@ footer p {
   .car-card .car-details .btn:not(.edit, .save) {
     font-size: smaller;
     padding: 0;
+    width: 85px;
   }
 }
 
@@ -288,6 +289,14 @@ p {
   grid-template-rows: 100px 400px;
   grid-template-areas: "prompts prompts image" "search  search  image";
 }
+@media screen and (max-width: 768px) {
+  .selection {
+    justify-content: center;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas: "prompts" "search" "image";
+  }
+}
 
 #calendar {
   grid-area: calendar;
@@ -313,8 +322,8 @@ p {
   margin-top: -8px;
   width: 45px;
 }
-#calendar .fc-daygrd-day-top {
-  height: 1em;
+#calendar .fc-daygrid-body {
+  overflow: hidden;
 }
 
 .prompts {
@@ -328,8 +337,22 @@ p {
   column-gap: 40px;
   align-items: flex-end;
 }
+@media screen and (max-width: 768px) {
+  .search {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+}
 .search > div:not(:first-of-type) {
   align-self: end;
+}
+@media screen and (max-width: 768px) {
+  .search > div:not(:first-of-type) {
+    align-self: center;
+    width: 100%;
+    padding: 35px 0;
+  }
 }
 .search .button-container > button {
   width: 150px;
@@ -349,6 +372,7 @@ p {
 
 .locations-list {
   list-style: none;
+  padding-left: 0;
 }
 
 #filter-form {
@@ -366,7 +390,7 @@ p {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-column-gap: 0px;
-    grid-template-areas: "min-price" "max-price" "fuel-type" "trans-type";
+    grid-template-areas: "min-price" "max-price" "fuel-type" "trans-type" "button";
   }
 }
 #filter-form .min-price {
@@ -378,7 +402,7 @@ p {
 #filter-form .fuel-type {
   grid-area: fuel-type;
 }
-#filter-form .trans-type {
+#filter-form .transmission-type {
   grid-area: trans-type;
 }
 #filter-form .button-container {

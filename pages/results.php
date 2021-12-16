@@ -25,7 +25,7 @@
         $Basket = new Basket($Conn);
         $Car = new Car($Conn);
         $filterData = $_POST ? $_POST : $_SESSION['postData'];
-        $cars = $Car->getAllFilteredActiveCars($filterData, $_SESSION['date']);
+        $cars = $Car->getAllFilteredActiveCars($filterData, $_SESSION['date'] ? $_SESSION['date'] : date("Y-m-d"));
     }
 ?>
 
