@@ -32,7 +32,7 @@ $_SESSION['date'] = null;
       <div class="filters-container">
         <form id="filter-form" method=post action="index.php?p=results">
             <div class="form-group min-price">
-              <label for="min_price_per_day">Min Price</label>
+              <label for="min_price_per_day">Minimum cost per day</label>
               <select class="form-control" id="min_price_per_day" name="min_price_per_day" aria-label="min price dropdown">
                 <option selected value="">Choose a minimum price</option>
                 <option value="">Any</option>
@@ -44,7 +44,7 @@ $_SESSION['date'] = null;
               </select>
             </div>
             <div class="form-group max-price">
-              <label for="max_price_per_day">Max Price</label>
+              <label for="max_price_per_day">Maximum cost per day</label>
               <select class="form-control" id="max_price_per_day" name="max_price_per_day" aria-label="max price dropdown">
                 <option selected value="">Choose a maximum price</option>
                 <option value="">Any</option>

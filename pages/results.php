@@ -4,8 +4,22 @@
     if (!$_SESSION['reloaded'] && $_SESSION['date'] == null) {
         $_SESSION['postData'] = $_POST;
         $_SESSION['reloaded'] = true;
-        echo "<div>Loading cars</div>";
-        header("Refresh:0");        
+        echo '
+        <div class="loadingModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Loading</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>Loading results - Please wait...</p>
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        ';
+        header("Refresh:0");   
     } else {
         $_SESSION['reloaded'] = false;
         $Basket = new Basket($Conn);
@@ -25,7 +39,7 @@
                 require(__DIR__.'/../includes/carCard.php');
             }
         } else {
-            echo '<div class="noResults"><p>No results found for that date! Try removing some filters or changing the dat</p><p><a class="btn btn-sevent centralised" href="index.php">Go home</a></p></div>';
+            echo '<div class="noResults"><p>No results found for that date! Try removing some filters or changing the date</p><p><a class="btn btn-sevent centralised" href="index.php">Go home</a></p></div>';
         }
         ?>
     </div>

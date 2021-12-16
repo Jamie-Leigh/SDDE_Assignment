@@ -65,7 +65,7 @@
             //is logged in
             if($_SESSION['is_loggedin']) { ?>
               <li class="nav-item">
-              <a class="nav-link<?php echo $page == "account" ? " active" : "" ?>" href="index.php?p=account">My Account</a>
+              <a class="nav-link<?php echo $page == "account" || $page == "editprofileimage" ? " active" : "" ?>" href="index.php?p=account">My Account</a>
               </li>
               <li class="nav-item">
               <a class="nav-link<?php echo $page == "basket" ? " active" : "" ?>" href="index.php?p=basket">My Basket</a>
