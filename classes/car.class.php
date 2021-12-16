@@ -129,7 +129,7 @@ class Car {
         seats = :seats,
         colour = :colour,
         body_type = :body_type,
-        price = :price,
+        price_per_day = :price,
         active = :active
         WHERE car_id = :car_id;";
         $stmt = $this->Conn->prepare($query);

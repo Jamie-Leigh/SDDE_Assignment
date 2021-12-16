@@ -1,6 +1,6 @@
 <?php
-    $attributesToHide = ["car_id", "image", "active"];
-    // sometimes the page loads before ajax/calendar.php has had a chance to set $_SESSION['dates]. Added flag so it only does it once.
+    $attributesToHide = ["car_id", "mileage", "image", "active"];
+    // sometimes the page loads before ajax/calendar.php has had a chance to set $_SESSION['date']. Added flag so it only does it once.
     if (!$_SESSION['reloaded'] && $_SESSION['date'] == null) {
         $_SESSION['postData'] = $_POST;
         $_SESSION['reloaded'] = true;

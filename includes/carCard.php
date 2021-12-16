@@ -72,7 +72,7 @@
                 }
             }
                 if ($Basket) {
-                    $isInBasket = $Basket->isInBasket($car['car_id']);
+                    $isInBasket = $Basket->isInBasket($car['car_id'], $_SESSION['date']);
                     require(__DIR__.'/../includes/addToBasket.php');
                 } else {
                     require(__DIR__.'/../includes/editcar.php');

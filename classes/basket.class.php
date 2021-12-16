@@ -14,39 +14,36 @@ class Basket {
 		return true;
 	}
 
-	private function removeCarsFromStock(){
+	private function addDatesToOrder(){
 		$carsInBasket = $this->getBasketForUser();
 		// take cars out of stock
 		$carsToSell = 0;
 		$data = [];
-		$query = "UPDATE cars SET active = 0 WHERE";
 		foreach($carsInBasket as $index => $car) {
-			if ($index == 0) {
-			$query .= " car_id = :car_id".$index."";
-			} else {
-				$query .= " OR car_id = :car_id".$index."";
-			}
-			$data['car_id'.$index.''] = $car['car_id'];
+			$query = "INSERT INTO car_order (car_id, date) VALUES (:car_id, :date);";
+			$data = [
+				'car_id' => $car['car_id'],
+				'date' => $car['date']
+			];
+			$stmt = $this->Conn->prepare($query);
+			$stmt->execute($data);
 		}
-		$query .=';';
-		$stmt = $this->Conn->prepare($query);
-
-		$stmt->execute($data);
 		return true;
 	}
 
-	public function isInBasket($car_id) {
-		$query = "SELECT * FROM car_basket WHERE user_id = :user_id AND car_id = :car_id";
+	public function isInBasket($car_id, $date) {
+		$query = "SELECT * FROM car_basket WHERE user_id = :user_id AND car_id = :car_id AND date = :date";
 		$stmt = $this->Conn->prepare($query);
 		$stmt->execute([
 			"user_id" => $_SESSION['user_data']['user_id'],
-			"car_id" => $car_id
+			"car_id" => $car_id,
+			"date" => $date
 		]);
 		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}
 
 	public function toggleInBasket($car_id){
-		$isInBasket = $this->isInBasket($car_id);
+		$isInBasket = $this->isInBasket($car_id, $_SESSION['date']);
 		if($isInBasket) {
 			// Is already in basket - so remove.
 			$query = "DELETE FROM car_basket WHERE basket_id = :basket_id";
@@ -58,12 +55,13 @@ class Basket {
 
 		} else {
 			// Is not in basket - so add
-			$query = "INSERT INTO car_basket (user_id, car_id) VALUES (:user_id, :car_id)";
+			$query = "INSERT INTO car_basket (user_id, car_id, date) VALUES (:user_id, :car_id, :date)";
 			$stmt = $this->Conn->prepare($query);
 			
 			return $stmt->execute(array(
 				"user_id" => $_SESSION['user_data']['user_id'],
-				"car_id" => $car_id
+				"car_id" => $car_id,
+				"date" => $_SESSION['date']
 			));
 			return true; // Return true for "added"
 		}
@@ -80,7 +78,7 @@ class Basket {
 
 	public function checkoutForUser(){
 		//get cars in basket
-		$stockRemoved = $this->removeCarsFromStock();
+		$addDatesToOrder = $this->addDatesToOrder();
 
 		//empty basket
 		$basketCleared = $this->clearBasket();

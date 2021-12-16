@@ -4,15 +4,15 @@
     <?php
         $Basket = new Basket($Conn);
         $user_basket = $Basket->getBasketForUser();
-        $attributesToHide = ["car_id", "image", "active", "basket_id", "user_id"];
-        $totalPrice = 0;
+        $attributesToHide = ["car_id", "mileage", "image", "active", "basket_id", "user_id"];
+        $_SESSION['totalPrice'] = 0;
 
         if($user_basket) {
             foreach($user_basket as $car) {
                     require(__DIR__.'/../includes/carCard.php');
-                    $totalPrice += $car['price'];
+                    $_SESSION['totalPrice'] += $car['price_per_day'];
                 }
-                echo '<div class="total-price">Total price of your basket: £'.number_format($totalPrice).'</div>
+                echo '<div class="total-price">Total price of your basket: £'.number_format($_SESSION['totalPrice']).'</div>
                     <div class="checkoutButton">
                     <form method="post" action="index.php?p=checkout">
                         <button type="submit" class="btn btn-sevent checkout" data-userid="'.$_SESSION["user_data"]["user_id"].'">Checkout</button>

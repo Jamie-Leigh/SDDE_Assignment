@@ -59,17 +59,17 @@
 		grid-template-rows: 1fr 1fr 1fr 40px;
 		grid-gap: 10px;
 		grid-template-areas:
-		"make      model      transmission_type  variant  description"
-		"mileage   fuel_type  year_built         car_id         description"
-		"seats     colour     body_type          active         price"
-		".         .          .                  .              button";
+		"make      model      transmission_type  date    description"
+		"fuel_type year_built body_type          mileage description"
+		"seats     colour     variant            car_id   price"
+		".         .          .                  .        button";
 
 		@media screen and (max-width: $tabletBreakPoint) {
 			grid-template-columns: 1fr;
 			grid-template-rows: 1fr 1fr 1fr 40px;
 			grid-template-areas:
 			"description"
-			"description"
+			"date"
 			"price"
 			"button";
 		}
@@ -98,7 +98,7 @@
 		.year_built {
 			grid-area: year_built;
 		}
-		.price {
+		.price_per_day {
 			grid-area: price;
 		}
 		.seats {
@@ -115,6 +115,9 @@
 		}
 		.active {
 			grid-area: active;
+		}
+		.date {
+			grid-area: date;
 		}
 
 		.make, .model, .variant, .mileage, .fuel, .transmission, .year_built, .seats, .colour, .body_type, .car_id, .active {
