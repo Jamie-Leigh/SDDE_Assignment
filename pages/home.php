@@ -36,11 +36,11 @@ $_SESSION['date'] = null;
               <select class="form-control" id="min_price_per_day" name="min_price_per_day" aria-label="min price dropdown">
                 <option selected value="">Choose a minimum price</option>
                 <option value="">Any</option>
-                <option value="10">£1500</option>
-                <option value="3000">£3000</option>
-                <option value="5000">£5000</option>
-                <option value="7500">£7500</option>
-                <option value="10000">£10000</option>
+                <option value="50">£50</option>
+                <option value="100">£100</option>
+                <option value="150">£150</option>
+                <option value="200">£200</option>
+                <option value="250">£250</option>
               </select>
             </div>
             <div class="form-group max-price">
@@ -48,11 +48,11 @@ $_SESSION['date'] = null;
               <select class="form-control" id="max_price_per_day" name="max_price_per_day" aria-label="max price dropdown">
                 <option selected value="">Choose a maximum price</option>
                 <option value="">Any</option>
-                <option value="1500">£1500</option>
-                <option value="3000">£3000</option>
-                <option value="5000">£5000</option>
-                <option value="7500">£7500</option>
-                <option value="10000">£10000</option>
+                <option value="100">£100</option>
+                <option value="150">£150</option>
+                <option value="200">£200</option>
+                <option value="250">£250</option>
+                <option value="300">£300</option>
               </select>
             </div>
             <div class="form-group fuel-type">
