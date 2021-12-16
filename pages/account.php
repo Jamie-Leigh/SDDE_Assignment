@@ -3,7 +3,7 @@
     <p>Welcome to your account.</p>
     <?php
         if($_SESSION['user_data']['image']) {
-            echo '<img class="mb-3" style="max-width: 100px;" src="./user-images/'.$_SESSION['user_data']['image'].'" />';
+            echo '<img class="mb-3" style="max-width: 100px;" src="./user_images/'.$_SESSION['user_data']['image'].'" />';
             echo '<p><a class="btn btn-sevent" href="index.php?p=editprofileimage">Edit profile image</a></p>';
         } else {
             echo '<p><a class="btn btn-sevent" href="index.php?p=editprofileimage">Add profile image</a></p>';

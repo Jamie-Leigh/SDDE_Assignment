@@ -9,7 +9,7 @@
                 //file is image
                 $random = substr(str_shuffle(MD5(microtime())), 0, 10);
                 $new_filename = $random . $_FILES['photo']['name'];
-                if (move_uploaded_file($_FILES['photo']['tmp_name'], __DIR__.'/../user-images/'.$new_filename)) {
+                if (move_uploaded_file($_FILES['photo']['tmp_name'], __DIR__.'/../user_images/'.$new_filename)) {
                     //file moved
                     $User = new User($Conn);
                     $User->updateUserProfile($new_filename);
