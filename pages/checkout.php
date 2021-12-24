@@ -23,8 +23,7 @@ $message->htmlBody = "<html>
 $message->plainTextBody = "This is the Plain Text Body of my message.";
 
 $message->from = new EmailAddress("jamie@sevent.com");
-$message->addToAddress("s210901@uos.ac.uk");
-// $message->addToAddress($_SESSION['user_data']['email']);
+$message->addToAddress($_SESSION['user_data']['email']);
 
 $response = $client->send($message);
 ?>
