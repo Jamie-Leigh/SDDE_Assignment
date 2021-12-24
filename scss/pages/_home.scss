@@ -49,6 +49,7 @@ p {
     grid-area: calendar;
     min-width: 300px;
     min-height: 400px;
+    padding-bottom: 30px;
 
         .fc-button {
             background-color: $secondary-color;
@@ -71,6 +72,11 @@ p {
             min-height: 0.5em;
             margin-top: -8px;
             width: 45px;
+            margin-left: -2px;
+        }
+        .fc-daygrid-day-number {
+            padding: 0;
+            padding-bottom: 3px;
         }
         .fc-daygrid-body {
             overflow: hidden;
@@ -85,7 +91,7 @@ p {
     grid-area: search;
     display: flex;
     flex-direction: row;
-    column-gap: 40px;
+    place-content: space-around;
     align-items: flex-end;
 
     @media screen and (max-width: $mobileBreakPoint) {
@@ -97,11 +103,17 @@ p {
     > div:not(:first-of-type) {
         align-self: end;
         height: 100%;
+        padding-right: 60px;
+
+        @media screen and (max-width: $desktopBreakPoint) {
+            padding-right: 0;
+            padding: 0 10px;
+        }
         
-        @media screen and (max-width: $mobileBreakPoint) {
+        @media screen and (max-width: $laptopBreakPoint) {
             align-self: center;
             width: 100%;
-            padding: 35px 0;
+            padding: 35px;
         }
     }
     .button-container > button {
@@ -141,6 +153,10 @@ p {
   row-gap: 30px;
   padding-right: 35px;
     height: 100%;
+
+    @media screen and (max-width: $desktopBreakPoint) {
+        padding-right: 0;
+    }
 
   @media screen and (max-width: $mobileBreakPoint) {
     grid-template-columns: 1fr;

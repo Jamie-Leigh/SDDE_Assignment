@@ -302,6 +302,7 @@ p {
   grid-area: calendar;
   min-width: 300px;
   min-height: 400px;
+  padding-bottom: 30px;
 }
 #calendar .fc-button {
   background-color: #459EF3;
@@ -321,6 +322,11 @@ p {
   min-height: 0.5em;
   margin-top: -8px;
   width: 45px;
+  margin-left: -2px;
+}
+#calendar .fc-daygrid-day-number {
+  padding: 0;
+  padding-bottom: 3px;
 }
 #calendar .fc-daygrid-body {
   overflow: hidden;
@@ -334,7 +340,7 @@ p {
   grid-area: search;
   display: flex;
   flex-direction: row;
-  column-gap: 40px;
+  place-content: space-around;
   align-items: flex-end;
 }
 @media screen and (max-width: 768px) {
@@ -347,12 +353,19 @@ p {
 .search > div:not(:first-of-type) {
   align-self: end;
   height: 100%;
+  padding-right: 60px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1400px) {
+  .search > div:not(:first-of-type) {
+    padding-right: 0;
+    padding: 0 10px;
+  }
+}
+@media screen and (max-width: 1024px) {
   .search > div:not(:first-of-type) {
     align-self: center;
     width: 100%;
-    padding: 35px 0;
+    padding: 35px;
   }
 }
 .search .button-container > button {
@@ -387,6 +400,11 @@ p {
   row-gap: 30px;
   padding-right: 35px;
   height: 100%;
+}
+@media screen and (max-width: 1400px) {
+  #filter-form {
+    padding-right: 0;
+  }
 }
 @media screen and (max-width: 768px) {
   #filter-form {
