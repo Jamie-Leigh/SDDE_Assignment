@@ -46,10 +46,9 @@ class Car {
 
     public function getAllFilteredActiveCars($filters, $date) {
         $car_filters = $this->generateParams($filters);
-        $query = "SELECT DISTINCT cars.* FROM cars INNER JOIN car_order ON cars.car_id = car_order.car_id WHERE active = 1";
+        $firstHalfQuery = "SELECT DISTINCT cars.* FROM cars INNER JOIN car_order ON cars.car_id = car_order.car_id WHERE active = 1";
+        $secondHalfQuery = "SELECT DISTINCT cars.car_id FROM cars INNER JOIN car_order ON cars.car_id = car_order.car_id WHERE active = 1";
         $data = [];
-        $firstHalfQuery = $query;
-        $secondHalfQuery = $query;
         if ($car_filters['search']) {
             $car_data = $this->searchCars($car_filters['search']);
         } else {
@@ -82,7 +81,7 @@ class Car {
                 $fullQuery .= " AND date <> :date";
                 $data["date"] = $date;
             }
-            $fullQuery .= " AND NOT EXISTS (";
+            $fullQuery .= " AND cars.car_id NOT IN (";
             $fullQuery .= $secondHalfQuery;
             if ($date) {
                 $fullQuery .= " AND date = :date1)";
