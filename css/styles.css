@@ -286,10 +286,10 @@ p {
 .selection {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 100px 400px;
+  grid-template-rows: auto 400px;
   grid-template-areas: "prompts prompts image" "search  search  image";
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .selection {
     justify-content: center;
     grid-template-columns: auto;
@@ -300,8 +300,8 @@ p {
 
 #calendar {
   grid-area: calendar;
-  width: 300px;
-  height: 400px;
+  min-width: 300px;
+  min-height: 400px;
 }
 #calendar .fc-button {
   background-color: #459EF3;
@@ -346,6 +346,7 @@ p {
 }
 .search > div:not(:first-of-type) {
   align-self: end;
+  height: 100%;
 }
 @media screen and (max-width: 768px) {
   .search > div:not(:first-of-type) {
@@ -384,6 +385,8 @@ p {
   border-bottom: 10px;
   color: #459EF3;
   row-gap: 30px;
+  padding-right: 35px;
+  height: 100%;
 }
 @media screen and (max-width: 768px) {
   #filter-form {
@@ -408,6 +411,7 @@ p {
 #filter-form .button-container {
   grid-area: button;
   justify-self: center;
+  align-self: flex-end;
 }
 
 body#page-login form label {

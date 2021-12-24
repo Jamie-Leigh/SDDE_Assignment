@@ -34,7 +34,7 @@ $_SESSION['date'] = null;
             <div class="form-group min-price">
               <label for="min_price_per_day">Minimum cost per day</label>
               <select class="form-control" id="min_price_per_day" name="min_price_per_day" aria-label="min price dropdown">
-                <option selected value="">Choose a minimum price</option>
+                <option selected value="">Minimum price</option>
                 <option value="">Any</option>
                 <option value="50">£50</option>
                 <option value="100">£100</option>
@@ -46,7 +46,7 @@ $_SESSION['date'] = null;
             <div class="form-group max-price">
               <label for="max_price_per_day">Maximum cost per day</label>
               <select class="form-control" id="max_price_per_day" name="max_price_per_day" aria-label="max price dropdown">
-                <option selected value="">Choose a maximum price</option>
+                <option selected value="">Maximum price</option>
                 <option value="">Any</option>
                 <option value="100">£100</option>
                 <option value="150">£150</option>
@@ -58,7 +58,7 @@ $_SESSION['date'] = null;
             <div class="form-group fuel-type">
               <label for="fuel_type">Fuel Type</label>
               <select class="form-control" id="fuel_type" name="fuel_type" aria-label="fuel type dropdown">
-                <option selected value="">Choose a fuel type</option>
+                <option selected value="">Fuel type</option>
                 <option value="">Any</option>
                 <option value="Petrol">Petrol</option>
                 <option value="Diesel">Diesel</option>
@@ -70,7 +70,7 @@ $_SESSION['date'] = null;
             <div class="form-group transmission-type">
               <label for="transmission_type">Transmission Type</label>
               <select class="form-control" id="transmission_type" name="transmission_type" aria-label="transmission type dropdown">
-                <option selected value="">Choose a transmission type</option>
+                <option selected value="">Transmission type</option>
                 <option value="">Any</option>
                 <option value="Manual">Manual</option>
                 <option value="Automatic">Automatic</option>

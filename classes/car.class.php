@@ -119,6 +119,15 @@ class Car {
         return $car_data;
     }
 
+    public function getDatesForCar($car_id) {
+        $query = "SELECT date FROM car_order WHERE car_id = :car_id;";
+        $stmt = $this->Conn->prepare($query);
+        $stmt->execute([
+            "car_id" => $car_id
+        ]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function updateCar($car_details) {
         $query = "UPDATE cars SET
         make = :make,

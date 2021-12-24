@@ -29,12 +29,12 @@ p {
 .selection {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 100px 400px;
+    grid-template-rows: auto 400px;
     grid-template-areas:
     "prompts prompts image"
     "search  search  image";
 
-    @media screen and (max-width: $mobileBreakPoint) {
+    @media screen and (max-width: $laptopBreakPoint) {
         justify-content: center;
         grid-template-columns: auto;
         grid-template-rows: auto;
@@ -47,8 +47,8 @@ p {
 }
 #calendar {
     grid-area: calendar;
-    width: 300px;
-    height: 400px;
+    min-width: 300px;
+    min-height: 400px;
 
         .fc-button {
             background-color: $secondary-color;
@@ -96,6 +96,8 @@ p {
 
     > div:not(:first-of-type) {
         align-self: end;
+        height: 100%;
+        
         @media screen and (max-width: $mobileBreakPoint) {
             align-self: center;
             width: 100%;
@@ -136,7 +138,9 @@ p {
   grid-column-gap: 40px;
   border-bottom: 10px;
   color: $secondary-color;
-  row-gap: 30px ;
+  row-gap: 30px;
+  padding-right: 35px;
+    height: 100%;
 
   @media screen and (max-width: $mobileBreakPoint) {
     grid-template-columns: 1fr;
@@ -165,5 +169,6 @@ p {
     .button-container {
         grid-area: button;
         justify-self: center;
+        align-self: flex-end;
     }
 }

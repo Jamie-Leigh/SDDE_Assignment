@@ -42,8 +42,6 @@ let calendar = new FullCalendar.Calendar(calendarEl, {
 
 calendar.render();
 
-
-
 $('body').on('click', '.getEvents', function (e) {
 
   if (calendar.getEvents().length > 1) {
