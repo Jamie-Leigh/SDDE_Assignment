@@ -14,10 +14,9 @@ if($_SESSION['user_data']) {
 }
 ini_set('display_errors', 'On');
 $page = $_GET['p'];
-$pages = ['accessdenied', 'account', 'basket', 'car', 'caradmin', 'checkout', 'editprofileimage', 'faq', 'home', 'login', 'logout', 'results', 'search', 'useradmin'];
+$pages = ['accessdenied', 'account', 'basket', 'car', 'caradmin', 'checkout', 'editprofileimage', 'faq', 'home', 'login', 'logout', 'results', 'search'];
 $isUser = ($_SESSION['user_data']['user_type'] == 'USER');
 $isAdmin = ($_SESSION['user_data']['user_type'] == 'ADMIN');
-$isSuper = ($_SESSION['user_data']['user_type'] == 'SUPER');
 
 $visitor_notallowed = ['caradmin', 'useradmin', 'basket', 'account'];
 $user_notallowed = ['caradmin', 'useradmin', 'login'];

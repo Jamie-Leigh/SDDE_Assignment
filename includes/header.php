@@ -72,17 +72,10 @@
               </li>
               <?php
               // if Admin
-              if ($_SESSION['user_data']['user_type'] == 'ADMIN' || $_SESSION['user_data']['user_type'] == 'SUPER') { ?>
+              if ($_SESSION['user_data']['user_type'] == 'ADMIN') { ?>
                 <li class="nav-item">
                 <a class="nav-link<?php echo $page == "caradmin" ? " active" : "" ?>" href="index.php?p=caradmin">Car admin</a>
                 </li>
-              <?php
-              // if SuperAdmin
-              } if ($_SESSION['user_data']['user_type'] == 'SUPER') { ?>
-                <li class="nav-item">
-                <a class="nav-link<?php echo $page == "useradmin" ? " active" : "" ?>" href="index.php?p=useradmin">User admin</a>
-                </li>
-                
               <?php } ?>
               <li class="nav-item">
               <a class="nav-link<?php echo $page == "logout" ? " active" : "" ?>" href="index.php?p=logout">Logout</a>
