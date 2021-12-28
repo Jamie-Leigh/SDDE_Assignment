@@ -18,9 +18,9 @@ $pages = ['accessdenied', 'account', 'basket', 'car', 'caradmin', 'checkout', 'e
 $isUser = ($_SESSION['user_data']['user_type'] == 'USER');
 $isAdmin = ($_SESSION['user_data']['user_type'] == 'ADMIN');
 
-$visitor_notallowed = ['caradmin', 'useradmin', 'basket', 'account'];
-$user_notallowed = ['caradmin', 'useradmin', 'login'];
-$admin_notallowed = ['useradmin', 'login'];
+$visitor_notallowed = ['caradmin', 'basket', 'account'];
+$user_notallowed = ['caradmin', 'login'];
+$admin_notallowed = ['login'];
 
 if($isVisitor) {
     if(in_array($page, $visitor_notallowed)) {
