@@ -17,8 +17,8 @@ $_SESSION['date'] = null;
       <ul class="locations-list">
         <li>London (HQ)</li>
         <li>Ipswich</li>
-        <li>Bath</li>
-        <li>Newcastle</li>
+        <li>Colchester</li>
+        <li>Cambridge</li>
       </ul>
     </div>
   </div>
