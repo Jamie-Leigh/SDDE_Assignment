@@ -11,8 +11,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/5f1e196da0.js" crossorigin="anonymous"></script>
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
     <link rel="icon" href="./images/favicon.ico">
     <script type="module" src="./js/calendar.js"></script>
     

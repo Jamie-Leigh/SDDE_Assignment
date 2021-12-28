@@ -248,10 +248,6 @@ footer p {
     transform: rotate(360deg);
   }
 }
-#map {
-  width: auto;
-  height: 400px;
-}
 
 .filter-container,
 .filters {
@@ -596,10 +592,6 @@ body#page-car .car-image-additional a {
   .accordion #map {
     padding-right: 100%;
   }
-}
-.accordion #map .mapboxgl-canvas {
-  width: auto !important;
-  height: 100% !important;
 }
 
 .row {

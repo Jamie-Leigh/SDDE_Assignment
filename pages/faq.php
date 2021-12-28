@@ -12,17 +12,6 @@
                 <div class="accordion-body">
                     We have four UK locations: London (HQ), Ipswich, Colchester and Cambridge. Our opening hours are 9am-5pm, 7 days a week.
                     If you hire a car online, you can collect it from any of our locations.
-                    <div id='map'></div>
-                    <script>
-                    mapboxgl.accessToken = 'pk.eyJ1IjoiamFtaWUtbGVpZ2giLCJhIjoiY2t3cGV2Ymx0MDh0bzJ1cnRhcGduNGJqYiJ9.atGN7v9atiuCwDxcz1HCiw';
-                    const map = new mapboxgl.Map({
-                        container: 'map',
-                        style: 'mapbox://styles/jamie-leigh/ckwpfte9o912714p482u4ddrb',
-                        center: [-1.4, 53.2],
-                        zoom: 4.3
-                    });
-                    </script>
-                    </div>
                 </div>
             </div>
         </div>
