@@ -1,6 +1,7 @@
 <?php
 	class User {
 		protected $Conn;
+		private $salt = "abc";
 		public function __construct($Conn){
 			$this->Conn = $Conn;
 		}
@@ -63,7 +64,7 @@
 			if ($emailAlreadyExists == true) {
 				return "exists";
 			}
-			$sec_password = password_hash($user_data['password'], PASSWORD_DEFAULT);
+			$sec_password = password_hash($user_data['password'].$salt, PASSWORD_DEFAULT);
 			$query = "INSERT INTO user (first_name, surname, email, password, phone, address_line_1, address_line_2, address_line_3, postcode)
 			VALUES (:first_name, :surname, :email, :password, :phone, :address_line_1, :address_line_2, :address_line_3, :postcode)";
 			$stmt = $this->Conn->prepare($query);
@@ -93,7 +94,7 @@
 			$stmt->execute(array('email' => $user_data['email']));
 			$attempt = $stmt->fetch();
 
-			if ($attempt && password_verify($user_data['password'], $attempt['password']) && !$isLocked) {
+			if ($attempt && password_verify($user_data['password'], $attempt['password'].$salt) && !$isLocked) {
 				$this->setPasswordAttempts($user_data['email'], true);
 				return $attempt;
 			} else {
