@@ -1,4 +1,10 @@
-function getCarsWhichFitFilters (minPriceFilterValue, maxPriceFilterValue, fuelType, transmissionType, date):
+"SELECT DISTINCT cars.*
+FROM cars INNER JOIN car_order ON cars.car_id = car_order.car_id
+WHERE active = 1 AND date <> dateSelected;"
+
+
+
+function getCarsWithFilters (minPriceFilterValue, maxPriceFilterValue, fuelType, transmissionType, date):
 
     firstHalfOfquery = "SELECT DISTINCT cars.* FROM cars INNER JOIN car_order ON cars.car_id = car_order.car_id WHERE active = 1"
     secondHalfOfQuery = "SELECT DISTINCT cars.car_id FROM cars INNER JOIN car_order ON cars.car_id = car_order.car_id WHERE active = 1"
@@ -31,7 +37,7 @@ function getCarsWhichFitFilters (minPriceFilterValue, maxPriceFilterValue, fuelT
 
 
 
-getCarsWhichFitFilters(100, null, null, "Manual", 2022-01-10) should create and run the following SQL query:
+getCarsWithFilters(100, null, null, "Manual", 2022-01-10) should create and run the following SQL query:
 
 "SELECT 
 	DISTINCT cars.* 
