@@ -15,7 +15,7 @@ function getCarsWithFilters (minPriceFilterValue, maxPriceFilterValue, fuelTypeF
         query = query + " AND fuel_type = fuelTypeFilterValue"
             
     if transmissionType has had a value chosen:
-        query = query + " AND transmission_type = transmissionTypeFilterValue"
+        query = query + " AND transmission = transmissionTypeFilterValue"
 
     if a date has been chosen:
         query = query + " AND date <> dateValue"
@@ -33,7 +33,7 @@ getCarsWithFilters(100, null, null, "Manual", 2022-01-10) should create and run 
     WHERE 
         active = 1 
         AND price_per_day >= 100 
-        AND transmission_type = 'Manual' 
+        AND transmission = 'Manual' 
         AND date <> 2022-01-10"
 
 
@@ -75,8 +75,8 @@ function getCarsWithFilters (minPriceFilterValue, maxPriceFilterValue, fuelType,
         secondHalfOfquery = secondHalfOfquery + " AND fuel_type = fuelTypeFilterValue"
             
     if transmissionType has had a value chosen:
-        firstHalfOfquery = firstHalfOfquery + " AND transmission_type = transmissionTypeFilterValue"
-        secondHalfOfquery = secondHalfOfquery + " AND transmission_type = transmissionTypeFilterValue"
+        firstHalfOfquery = firstHalfOfquery + " AND transmission = transmissionTypeFilterValue"
+        secondHalfOfquery = secondHalfOfquery + " AND transmission = transmissionTypeFilterValue"
 
     if a date has been chosen:
         firstHalfOfquery = firstHalfOfquery + " AND date <> dateValue"
@@ -90,7 +90,7 @@ function getCarsWithFilters (minPriceFilterValue, maxPriceFilterValue, fuelType,
 
 
 
-getCarsWithFilters(100, null, null, "Manual", 2022-01-10) should create and run the following SQL query:
+getAllFilteredActiveCars(["min_price" => 100, "transmission" => "Manual"], 2022-01-10) should create and run the following SQL query:
 
 "SELECT 
 	DISTINCT cars.* 
@@ -100,8 +100,8 @@ FROM
 WHERE 
 	active = 1 
 	AND price_per_day >= 100 
-	AND transmission_type = 'Manual' 
-	AND date <> 2022-01-10 
+	AND transmission = 'Manual' 
+	AND date <> '2022-01-10'
 	AND cars.car_id NOT IN (
 		SELECT 
 			DISTINCT cars.car_id 
@@ -111,8 +111,8 @@ WHERE
 		WHERE 
 			active = 1 
 			AND price_per_day >= 100 
-			AND transmission_type = 'Manual'
-			AND date = 2022-01-10
+			AND transmission = 'Manual'
+			AND date = '2022-01-10'
 	)
 ;"
 
