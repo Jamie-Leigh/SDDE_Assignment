@@ -3,6 +3,59 @@ FROM cars INNER JOIN car_order ON cars.car_id = car_order.car_id
 WHERE active = 1 AND date <> dateSelected;"
 
 
+function getCarsWithFilters (minPriceFilterValue, maxPriceFilterValue, fuelTypeFilterValue, transmissionTypeFilterValue, date):
+    query = "SELECT DISTINCT * FROM cars INNER JOIN car_order ON cars.car_id = car_order.car_id WHERE active = 1"
+    if minPriceFilter has had a value chosen:
+        query = query + " AND price_per_day >= minPriceFilterValue"
+
+    if maxPriceFilter has had a value chosen:
+        query = query + " AND price_per_day <= maxPriceFilterValue"
+
+    if fuelType has had a value chosen:
+        query = query + " AND fuel_type = fuelTypeFilterValue"
+            
+    if transmissionType has had a value chosen:
+        query = query + " AND transmission_type = transmissionTypeFilterValue"
+
+    if a date has been chosen:
+        query = query + " AND date <> dateValue"
+
+    prepare query
+    execute prepared query with values from filters and date
+    return results
+
+getCarsWithFilters(100, null, null, "Manual", 2022-01-10) should create and run the following SQL query:
+    "SELECT 
+        DISTINCT cars.* 
+    FROM 
+        cars 
+        INNER JOIN car_order ON cars.car_id = car_order.car_id 
+    WHERE 
+        active = 1 
+        AND price_per_day >= 100 
+        AND transmission_type = 'Manual' 
+        AND date <> 2022-01-10"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function getCarsWithFilters (minPriceFilterValue, maxPriceFilterValue, fuelType, transmissionType, date):
 
