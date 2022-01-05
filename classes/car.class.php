@@ -154,7 +154,7 @@ class Car {
             'seats' => (int)$car_details['seats'],
             'colour' => $car_details['colour'],
             'body_type' => $car_details['body_type'],
-            'price' => (float)$car_details['price'],
+            'price' => (float)$car_details['price_per_day'],
             'active' => (bool)$car_details['active'],
             'car_id' => (int)$car_details['car_id'],
         ];

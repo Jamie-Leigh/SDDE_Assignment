@@ -21,7 +21,6 @@
             </div>
         </div>
         ';
-        sleep(3);
         header("Refresh:0");
     }
 
